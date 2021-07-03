@@ -1,14 +1,18 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Home from './components/Home';
 
 
 function App() {
   return (
     <div className="App">
- 
+      <Home />
     </div>
   );
 }
 
 export default App;
+
+//GUIDE ON HOW TO USE JIKAN ANIME API (MAL API BUT EASIER TO USE)
+//https://www.youtube.com/watch?v=ZZA-QrBBM3YG
