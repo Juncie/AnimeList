@@ -5,6 +5,10 @@
   text-align: center;
   height: 100vh;
   background: orange;
+  background-size: cover;
+  overflow: visible;
+  margin: 0;
+  padding: 0;
 }
 
 /* NAVBAR Lines 12 - 63 */   
@@ -20,7 +24,7 @@ nav{
   background-color: black;
   color: white;
   width: 95vw;
-  border-radius: 5px;
+  border-radius: 5px; 
   font-family: 'Luckiest Guy';
   margin-top: 3em;
   align-items: center;
@@ -69,11 +73,11 @@ nav h5{
 }
 .wrapper{
   display: grid;
-  height: 100vh;
+  height: 100%;
   grid-template-columns: repeat(2, .4fr);
-  grid-template-rows:.2fr 1fr 1fr 25vw ;
+  grid-template-rows:.2fr 1fr 1fr 25vw;
   grid-template-areas: 
-  "lol lol"
+  "searchbar searchbar"
   "topanime genres"
   "manga random"
   "footer footer" ;
@@ -92,7 +96,7 @@ nav h5{
 }
 
 .home-page input{
-  grid-area: lol;
+  grid-area: searchbar;
   position: relative;
   top: 20vh;
   border-radius: 10px;
@@ -100,9 +104,13 @@ nav h5{
   font-size: 1em;
 }
   .show-box{
-    display: flex;
-    flex-flow: column wrap;
+    margin-top: 20vh;
+    display: grid;
+    grid-template-columns: repeat(5, 19vw);
+
   }
+  
+  
 
 /* Error here */
 .topAnime-box{
