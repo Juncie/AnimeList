@@ -1,31 +1,20 @@
-import React, {useState, useEffect} from 'react';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
+import React from 'react';
 
-function Home() {
-
-const [anime, setAnime] = useState([])
-
-
-const GetTopAnime = async () => {
-    const temp = await fetch(`https://api.jikan.moe/v3/top/anime/1/bypopularity`)
-        .then(res => res.json());
-        setAnime(temp.top.slice(0, 5));
-} 
-
-
-useEffect(() =>{
-    GetTopAnime();
-}, [])
-
-console.log(anime)
-
- return (
-
-        <div>
-            Hello
+const Home = () => {
+    return (
+        <div className='home-page'>
+                <div className="wrapper">    
+                
+                <input type='text' placeholder='Begin your search here...'></input>
+                <div id='box' className='TopAnime-box'>Top Anime</div>
+                <div id='box'className='Genres-box'>Genres</div>
+                <div id='box'className='Manga-box'>Manga</div>
+                <div id='box'className='Random-box'>???</div>
+                <footer style={{gridArea:"footer", position:'relative', top:'28vh'}} className='foot'>Follow Us:</footer>
+                
+                </div>
         </div>
     );
-}
+};
 
 export default Home;

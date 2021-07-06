@@ -1,43 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+
+
 .App {
   text-align: center;
+  height: 100vh;
+  background: orange;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+/* NAVBAR Lines 12 - 63 */   
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.nav-bar{
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.beers{
+nav{
   display: flex;
+  position: fixed;
+  background-color: black;
+  color: white;
+  width: 95vw;
+  border-radius: 5px;
+  font-family: 'Luckiest Guy';
+  margin-top: 3em;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav h1{
+  font-size: 32px;
+  margin-bottom: 0;
+}
+
+nav h5{
+  margin-top: 0;
+  font-size: 14px;
+}
+
+.logo{
+  align-items: flex-start;
+  margin-left: 6vw;
   
 }
+
+.Toons{
+  color: orange;
+}
+
+.options{
+  display: flex;
+  justify-content: space-around;
+  width: 60vw;
+  margin-right: 3vw;
+}
+
+.options input{
+  height: 4vh;
+  align-self: center;
+  border-radius: 7px;
+  text-align: center;
+  width: 15vw;
+}
+
+
+/* HOME */
+
+.home-page{
+}
+.wrapper{
+  display: grid;
+  height: 100vh;
+  grid-template-columns: repeat(2, .4fr);
+  grid-template-rows:.2fr 1fr 1fr 25vw ;
+  grid-template-areas: 
+  "searchbar searchbar"
+  "topanime genres"
+  "manga random"
+  "footer footer" ;
+  justify-content: center;
+  /* align-content: center; */
+  grid-gap: 1em 5em;
+  overflow: hidden;
+}
+
+#box{
+  position: relative;
+  top: 25vh;
+  background:white;
+  border: gray 5px solid;
+  border-radius: 10px;
+}
+
+.home-page input{
+  grid-area: searchbar;
+  position: relative;
+  top: 20vh;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1em;
+}
+.TopAnime-box{
+  grid-area: topanime;
+};
+
+.Genres-box{
+  grid-area: genre;
+};
+
+.Manga-box{
+  grid-area: manga;
+};
+
+.Random-box{
+  grid-area: random;
+};
+

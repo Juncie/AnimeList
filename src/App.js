@@ -2,12 +2,23 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Home from './components/Home';
+import Navbar from './components/Navbar';
+import axios from 'axios';
+import { Switch, Link, Route } from 'react-router-dom';
+import TopAnime from './components/TopAnime';
+import Manga from './components/Manga';
+
 
 
 function App() {
   return (
     <div className="App">
-      <Home />
+      <Navbar />
+      <Switch>
+        <Route exact path="/" render={() => <Home />} />
+        <Route exact path="/TopAnime" render={(props) => <TopAnime {...props} />} />
+        <Route exact path="/Manga" render={(props) => <Manga {...props} />} />
+      </Switch>
     </div>
   );
 }
