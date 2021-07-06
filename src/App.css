@@ -73,13 +73,13 @@ nav h5{
   grid-template-columns: repeat(2, .4fr);
   grid-template-rows:.2fr 1fr 1fr 25vw ;
   grid-template-areas: 
-  "searchbar searchbar"
+  "lol lol"
   "topanime genres"
   "manga random"
   "footer footer" ;
   justify-content: center;
   /* align-content: center; */
-  grid-gap: 1em 5em;
+  grid-gap: 1em 5em;  
   overflow: hidden;
 }
 
@@ -92,19 +92,26 @@ nav h5{
 }
 
 .home-page input{
-  grid-area: searchbar;
+  grid-area: lol;
   position: relative;
   top: 20vh;
   border-radius: 10px;
   text-align: center;
   font-size: 1em;
 }
-.TopAnime-box{
-  grid-area: topanime;
-};
+  .show-box{
+    display: flex;
+    flex-flow: column wrap;
+  }
 
+/* Error here */
+.topAnime-box{
+  grid-area: topanime;
+  background-color: red;
+};
 .Genres-box{
   grid-area: genre;
+  background-color: aquamarine
 };
 
 .Manga-box{
@@ -113,5 +120,11 @@ nav h5{
 
 .Random-box{
   grid-area: random;
+  background-color: blue;
 };
 
+
+
+
+
+/* TopAnime */
