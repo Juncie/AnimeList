@@ -1,14 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
 
-
+html{
+  background: orange;
+}
 .App {
   text-align: center;
-  height: 100vh;
-  background: orange;
-  background-size: cover;
-  overflow: visible;
-  margin: 0;
-  padding: 0;
 }
 
 /* NAVBAR Lines 12 - 63 */   
@@ -69,13 +65,11 @@ nav h5{
 
 /* HOME */
 
-.home-page{
-}
 .wrapper{
   display: grid;
   height: 100%;
   grid-template-columns: repeat(2, .4fr);
-  grid-template-rows:.2fr 1fr 1fr 25vw;
+  grid-template-rows:.01fr .1fr .1fr .1fr;
   grid-template-areas: 
   "searchbar searchbar"
   "topanime genres"
@@ -84,17 +78,18 @@ nav h5{
   justify-content: center;
   /* align-content: center; */
   grid-gap: 1em 5em;  
-  overflow: hidden;
 }
 
 #box{
   position: relative;
   top: 25vh;
   background:white;
-  border: gray 5px solid;
+  border: black 1px solid;
   border-radius: 10px;
 }
-
+.home-page{
+  height: 100vh;
+}
 .home-page input{
   grid-area: searchbar;
   position: relative;
@@ -102,37 +97,40 @@ nav h5{
   border-radius: 10px;
   text-align: center;
   font-size: 1em;
+  
 }
   .show-box{
-    margin-top: 20vh;
+    margin: 20vh 5vw 0 5vw;
     display: grid;
-    grid-template-columns: repeat(5, 19vw);
-
+    grid-template-columns: repeat(auto-fit, minmax(225px, 1fr ));
   }
   
+  .links{
+    text-decoration: none;
+  }
   
+.images{
+  height: 350px;
+}
 
-/* Error here */
 .topAnime-box{
   grid-area: topanime;
-  background-color: red;
 };
-.Genres-box{
-  grid-area: genre;
+.genres-box{
+  grid-area: genres;
   background-color: aquamarine
 };
 
-.Manga-box{
+.manga-box{
   grid-area: manga;
 };
 
-.Random-box{
+.random-box{
   grid-area: random;
-  background-color: blue;
 };
 
-
-
-
-
-/* TopAnime */
+.foot{
+  grid-area: footer;
+  /* position: relative; */
+  /* top: 25vh; */
+}

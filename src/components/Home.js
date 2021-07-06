@@ -7,10 +7,10 @@ const Home = () => {
                 
                 <input type='text' placeholder='Begin your search here...'></input>
                 <div id="box" className='topAnime-box'>Top Anime</div>
-                <div id="box" className='Genres-box'>Genres</div>
-                <div id="box" className='Manga-box'>Manga</div>
-                <div id="box" className='Random-box'>???</div>
-                <footer style={{gridArea:'footer', position:'relative', top: '28vh'}} className='foot'>Follow Us:</footer>
+                <div id="box" className='genres-box'>Genres</div>
+                <div id="box" className='manga-box'>Manga</div>
+                <div id="box" className='random-box'>???</div>
+                <footer id="box" className='foot'>Follow Us:</footer>
                 
                 </div>
         </div>
@@ -31,3 +31,10 @@ const dailyFun = () => {
      }
     
    dailyFun()
+
+
+
+
+
+//    console.log('https://api.jikan.moe/v3/manga/anime/1/characters')
+//    console.log('https://api.jikan.moe/v3/genre/anime/1/1')
