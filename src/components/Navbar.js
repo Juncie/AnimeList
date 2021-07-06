@@ -11,9 +11,9 @@ const Navbar = () => {
                </section>
                
                 <section className="options">
-                    <Link to='/'> <h3> Home </h3> </Link>
-                    <Link to='/TopAnime/'> <h3> Top Anime </h3> </Link>
-                    <Link to='/Manga/'> <h3> Manga </h3> </Link>
+                    <Link className="links" to='/'> <h3> Home </h3> </Link>
+                    <Link className="links" to='/TopAnime/'> <h3> Top Anime </h3> </Link>
+                    <Link className="links" to='/Manga/'> <h3> Manga </h3> </Link>
                     <input type='text' placeholder='Explore'></input>
                 </section>
             </nav>

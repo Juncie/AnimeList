@@ -68,44 +68,51 @@ nav h5{
 .wrapper{
   display: grid;
   height: 100%;
-  grid-template-columns: repeat(2, .4fr);
-  grid-template-rows:.01fr .1fr .1fr .1fr;
-  grid-template-areas: 
-  "searchbar searchbar"
-  "topanime genres"
-  "manga random"
-  "footer footer" ;
+  grid-template-columns: repeat(2, 0.4fr);
+  grid-template-rows: 3em .1fr .1fr 1em;
+  grid-template-areas:
+      "s s"
+      "a g"
+      "m r"
+      "ft ft";
   justify-content: center;
-  /* align-content: center; */
-  grid-gap: 1em 5em;  
+  align-content: center;
+  grid-gap: 1em 5em; 
+}
+
+.home-page input{
+  position: relative;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1em;
+}
+
+/* .topAnime-box{
+  grid-area: a;
+}; */
+.genres-box{
+  background-color: aquamarine
+};
+
+.manga-box{
+  background-color: black
+};
+
+.random-box{
+};
+
+.foot{
+  border: black solid 2px;
 }
 
 #box{
-  position: relative;
-  top: 25vh;
-  background:white;
-  border: black 1px solid;
   border-radius: 10px;
 }
 .home-page{
   height: 100vh;
 }
-.home-page input{
-  grid-area: searchbar;
-  position: relative;
-  top: 20vh;
-  border-radius: 10px;
-  text-align: center;
-  font-size: 1em;
-  
-}
-  .show-box{
-    margin: 20vh 5vw 0 5vw;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(225px, 1fr ));
-  }
-  
-  .links{
+
+.links{
     text-decoration: none;
   }
   
@@ -113,24 +120,10 @@ nav h5{
   height: 350px;
 }
 
-.topAnime-box{
-  grid-area: topanime;
-};
-.genres-box{
-  grid-area: genres;
-  background-color: aquamarine
-};
-
-.manga-box{
-  grid-area: manga;
-};
-
-.random-box{
-  grid-area: random;
-};
-
-.foot{
-  grid-area: footer;
-  /* position: relative; */
-  /* top: 25vh; */
-}
+/* Top Anime Page */
+.show-box{
+  margin-top: 15em;
+  padding: 10em;
+  grid-gap: 1vw;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));  }
