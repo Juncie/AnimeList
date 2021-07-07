@@ -14,7 +14,6 @@ function TopAnime({props}) {
         setAnime(temp.top);
     } 
     console.log(anime.mal_id)
-
     
     const showTop = () => {
        return anime.map((eachAnime, i) => {

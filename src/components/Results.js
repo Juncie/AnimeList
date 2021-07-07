@@ -1,9 +1,8 @@
 import React from "react";
-import Search from "./Search";
 import AnimeCard from "./AnimeCard";
 
 function Results(props) {
-    console.log(props);
+  console.log(props);
   return (
     <div>
       {/* <form onSubmit={props.HandleSearch}>
@@ -16,6 +15,7 @@ function Results(props) {
       </form> */}
 
       <div className="show-box">
+        <h1>Anime</h1>
         {props.animeList.map((anime) => (
           <AnimeCard anime={anime} key={anime.mal_id} />
         ))}

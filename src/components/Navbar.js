@@ -1,11 +1,7 @@
-import React, {useState} from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
-
-import Search from "./Search";
-
 const Navbar = (props) => {
-
 
   return (
     <div className="nav-bar">
@@ -30,7 +26,22 @@ const Navbar = (props) => {
             {" "}
             <h3> Manga </h3>{" "}
           </Link>
-          <Search setSearch={props.setSearch} search={props.search} animeList={props.animeList} setAnimeList={props.setAnimeList}/>
+          <div>
+            <form onSubmit={props.HandleSearch}>            
+                  <input
+                    type="search"
+                    placeholder="Search"
+                    requiredvalue={props.search}
+                    onChange={(e) => props.setSearch(e.target.value)}
+                  ></input>
+            </form>
+            
+            {/* <div className="anime-list">
+              {props.animeList.map((anime) => (
+                <AnimeCard anime={anime} key={anime.mal_id} />
+              ))}
+            </div> */}
+          </div>
         </section>
       </nav>
     </div>
