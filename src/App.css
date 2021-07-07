@@ -86,8 +86,14 @@ nav h5 {
 .show-box {
   margin: 20vh 5vw 0 5vw;
   display: grid;
+  grid-gap: 25px;
   grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
 }
+
+.show-box h1{
+  grid-area: 1/1/1/7;
+}
+
 .links {
   text-decoration: none;
 }
@@ -114,4 +120,36 @@ nav h5 {
 }
 .options form {
   padding: 0;
-}  
+} 
+
+/* More Details */
+.more-details{
+}
+
+.more-details-info{
+  display: flex;
+  margin: 200px;
+}
+
+.more-details-info img{
+}
+
+.more-details-info iframe{
+  width: 35em;
+  height: 25em;
+}
+.youtube-vid{
+  align-self: flex-end;
+}
+
+.sec-1{
+  display: flex;
+  font-family: "Luckiest Guy";
+}
+
+.col-2{
+  display: flex;
+  flex-direction: column;
+  width: 60em;
+  margin-left: 4em;
+}

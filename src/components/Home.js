@@ -21,5 +21,5 @@ export default Home;
 
 
 
-//    console.log('https://api.jikan.moe/v3/manga/anime/1/characters')
+//    console.log('https://api.jikan.moe/v3/manga/anime/dynamicId/characters')
 //    console.log('https://api.jikan.moe/v3/genre/anime/1/1')
