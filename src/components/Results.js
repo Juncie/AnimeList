@@ -1,24 +1,53 @@
 import React from "react";
-import AnimeCard from "./AnimeCard";
+import { Link } from "react-router-dom";
 
 function Results(props) {
-  console.log(props);
+  const animeCard = () => {
+    //console.log(props.animeList);
+
+    return props.animeList.map((ele) => {
+      return (
+        <article className="anime-card">
+          <Link to={`/MoreDetails/${ele.mal_id}`} className="links">
+            <figure>
+              <img src={ele.image_url} alt="Anime" />
+            </figure>
+            <h3>{ele.title}</h3>
+          </Link>
+        </article>
+      );
+    });
+  };
+
+  const mangaCard = () => {
+    //console.log(props.mangaList);
+
+    return props.mangaList.map((ele) => {
+      return (
+        <article className="anime-card">
+          <Link to={`/MoreDetails/${ele.mal_id}`} className="links">
+            <figure>
+              <img src={ele.image_url} alt="Anime" />
+            </figure>
+            <h3>{ele.title}</h3>
+          </Link>
+        </article>
+      );
+    });
+  };
+
   return (
     <div>
-      {/* <form onSubmit={props.HandleSearch}>
-        <input
-          type="search"
-          placeholder="Search"
-          requiredvalue={props.search}
-          onChange={(e) => props.SetSearch(e.target.value)}
-        ></input>
-      </form> */}
-
       <div className="show-box">
         <h1>Anime</h1>
-        {props.animeList.map((anime) => (
-          <AnimeCard anime={anime} key={anime.mal_id} />
-        ))}
+
+        {animeCard()}
+      </div>
+
+      <div className="show-box">
+        <h1>Manga</h1>
+
+        {mangaCard()}
       </div>
     </div>
   );
