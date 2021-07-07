@@ -1,129 +1,117 @@
-@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
-
-html{
+@import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap");
+html {
   background: orange;
 }
 .App {
   text-align: center;
 }
-
-/* NAVBAR Lines 12 - 63 */   
-
-.nav-bar{
+/* NAVBAR Lines 12 - 63 */
+.nav-bar {
   display: flex;
   justify-content: center;
 }
-
-nav{
+nav {
   display: flex;
   position: fixed;
   background-color: black;
   color: white;
   width: 95vw;
-  border-radius: 5px; 
-  font-family: 'Luckiest Guy';
+  border-radius: 5px;
+  font-family: "Luckiest Guy";
   margin-top: 3em;
   align-items: center;
   justify-content: space-between;
 }
-
-nav h1{
+nav h1 {
   font-size: 32px;
   margin-bottom: 0;
 }
-
-nav h5{
+nav h5 {
   margin-top: 0;
   font-size: 14px;
 }
-
-.logo{
+.logo {
   align-items: flex-start;
   margin-left: 6vw;
-  
 }
-
-.Toons{
+.Toons {
   color: orange;
 }
-
-.options{
+.options {
   display: flex;
   justify-content: space-around;
   width: 60vw;
   margin-right: 3vw;
 }
-
-.options input{
+.options input {
   height: 4vh;
   align-self: center;
   border-radius: 7px;
   text-align: center;
   width: 15vw;
 }
-
-
 /* HOME */
-
-.wrapper{
+.wrapper {
   display: grid;
   height: 100%;
   grid-template-columns: repeat(2, 0.4fr);
-  grid-template-rows: 3em .1fr .1fr 1em;
+  grid-template-rows: 0.01fr 0.1fr 0.1fr 0.1fr;
   grid-template-areas:
-      "s s"
-      "a g"
-      "m r"
-      "ft ft";
+    "searchbar searchbar"
+    "topanime genres"
+    "manga random"
+    "footer footer";
   justify-content: center;
-  align-content: center;
-  grid-gap: 1em 5em; 
+  /* align-content: center; */
+  grid-gap: 1em 5em;
 }
-
-.home-page input{
+#box {
   position: relative;
+  top: 25vh;
+  background: white;
+  border: black 1px solid;
+  border-radius: 10px;
+}
+.home-page {
+  height: 100vh;
+}
+.home-page input {
+  grid-area: searchbar;
+  position: relative;
+  top: 20vh;
   border-radius: 10px;
   text-align: center;
   font-size: 1em;
 }
-
-/* .topAnime-box{
-  grid-area: a;
-}; */
-.genres-box{
-  background-color: aquamarine
-};
-
-.manga-box{
-  background-color: black
-};
-
-.random-box{
-};
-
-.foot{
-  border: black solid 2px;
+.show-box {
+  margin: 20vh 5vw 0 5vw;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
 }
-
-#box{
-  border-radius: 10px;
+.links {
+  text-decoration: none;
 }
-.home-page{
-  height: 100vh;
-}
-
-.links{
-    text-decoration: none;
-  }
-  
-.images{
+.images {
   height: 350px;
 }
-
-/* Top Anime Page */
-.show-box{
-  margin-top: 15em;
-  padding: 10em;
-  grid-gap: 1vw;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));  }
+.topAnime-box {
+  grid-area: topanime;
+}
+.genres-box {
+  grid-area: genres;
+  background-color: aquamarine;
+}
+.manga-box {
+  grid-area: manga;
+}
+.random-box {
+  grid-area: random;
+}
+.foot {
+  grid-area: footer;
+  /* position: relative; */
+  /* top: 25vh; */
+}
+.options form {
+  padding: 0;
+}  

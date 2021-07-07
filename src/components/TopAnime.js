@@ -13,13 +13,14 @@ function TopAnime({props}) {
         .then(res => res.json());
         setAnime(temp.top);
     } 
-    console.log(anime)
+    console.log(anime.mal_id)
 
     
     const showTop = () => {
        return anime.map((eachAnime, i) => {
+           console.log(eachAnime.mal_id);
             return (
-                <Link to='/MoreDetails/'key={i} className='links'>
+                <Link to={`/MoreDetails/${eachAnime.mal_id}`} key={i} className='links'>
                 <div key={i}>
                    
                         <img src={eachAnime.image_url} className="images"/>
