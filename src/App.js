@@ -38,3 +38,4 @@ export default App;
 
 //GUIDE ON HOW TO USE JIKAN ANIME API (MAL API BUT EASIER TO USE)
 //https://www.youtube.com/watch?v=ZZA-QrBBM3YG
+// Jikan API url: https://jikan.docs.apiary.io/#
