@@ -1,7 +1,24 @@
 import React from "react";
-import AnimeCard from "./AnimeCard";
+import {Link } from 'react-router-dom'
 
 function Results(props) {
+
+    function AnimeCard(props) {
+        console.log("props.url");
+        console.log(props.anime);
+        return (
+
+          <article className="anime-card">          
+          <Link to={`/MoreDetails/${props.anime.mal_id}`} className='links'>
+              <figure>
+                <img src={props.anime.image_url} alt="Anime" />
+              </figure>
+              <h3>{props.anime.title}</h3>
+              </Link>
+          </article>
+        );
+      }
+
   console.log(props);
   return (
     <div>
