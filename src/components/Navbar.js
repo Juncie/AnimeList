@@ -18,13 +18,13 @@ const Navbar = (props) => {
             {" "}
             <h3> Home </h3>{" "}
           </Link>
-          <Link to="/TopAnime/">
+          <Link to="/TopAnime">
             {" "}
             <h3> Top Anime </h3>{" "}
           </Link>
-          <Link to="/Manga/">
+          <Link to="/TopManga">
             {" "}
-            <h3> Manga </h3>{" "}
+            <h3> Top Manga </h3>{" "}
           </Link>
           <div>
             <form onSubmit={props.HandleSearch}>            

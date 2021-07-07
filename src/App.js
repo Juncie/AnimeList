@@ -3,7 +3,7 @@ import "./App.css";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import TopAnime from "./components/TopAnime";
-import Manga from "./components/Manga";
+import TopManga from "./components/TopManga";
 import MoreDetails from "./components/MoreDetails";
 import Results from "./components/Results";
 // Hooks
@@ -81,7 +81,11 @@ function App() {
           path="/TopAnime"
           render={(props) => <TopAnime {...props} />}
         />
-        <Route exact path="/Manga" render={(props) => <Manga {...props} />} />
+        <Route
+          exact
+          path="/TopManga"
+          render={(props) => <TopManga {...props} />}
+        />
         <Route
           exact
           path="/MoreDetails/:dynamicId"
