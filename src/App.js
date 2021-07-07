@@ -1,12 +1,13 @@
-import React, {useState} from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import Home from "./components/Home";
-import Navbar from "./components/Navbar";
-import axios from "axios";
-import { Switch, Link, Route } from "react-router-dom";
-import TopAnime from "./components/TopAnime";
-import Manga from "./components/Manga";
+import React, {useState} from 'react';
+import logo from './logo.svg';
+import './App.css';
+import Home from './components/Home';
+import Navbar from './components/Navbar';
+import axios from 'axios';
+import { Switch, Link, Route } from 'react-router-dom';
+import TopAnime from './components/TopAnime';
+import Manga from './components/Manga';
+import MoreDetails from './components/MoreDetails';
 import Search from "./components/Search";
 import Results from "./components/Results";
 
@@ -25,8 +26,9 @@ function App() {
           exact
           path="/TopAnime"
           render={(props) => <TopAnime {...props} />}
-        />
+        /> 
         <Route exact path="/Manga" render={(props) => <Manga {...props} />} />
+        <Route exact path="/MoreDetails/:dynamicId" render={(props) => <MoreDetails {...props} />} />
         <Route exact path="/Results" render={(props) => <Results animeList={animeList} {...props} />} />
         <Route exact path="/Search" render={(props) => <Search setSearch={setSearch} search={search} animeList={animeList} setAnimeList={setAnimeList} {...props} />} />
       </Switch>

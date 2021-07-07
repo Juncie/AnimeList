@@ -1,19 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap");
-
 html {
   background: orange;
 }
 .App {
   text-align: center;
 }
-
 /* NAVBAR Lines 12 - 63 */
-
 .nav-bar {
   display: flex;
   justify-content: center;
 }
-
 nav {
   display: flex;
   position: fixed;
@@ -26,33 +22,27 @@ nav {
   align-items: center;
   justify-content: space-between;
 }
-
 nav h1 {
   font-size: 32px;
   margin-bottom: 0;
 }
-
 nav h5 {
   margin-top: 0;
   font-size: 14px;
 }
-
 .logo {
   align-items: flex-start;
   margin-left: 6vw;
 }
-
 .Toons {
   color: orange;
 }
-
 .options {
   display: flex;
   justify-content: space-around;
   width: 60vw;
   margin-right: 3vw;
 }
-
 .options input {
   height: 4vh;
   align-self: center;
@@ -60,9 +50,7 @@ nav h5 {
   text-align: center;
   width: 15vw;
 }
-
 /* HOME */
-
 .wrapper {
   display: grid;
   height: 100%;
@@ -77,7 +65,6 @@ nav h5 {
   /* align-content: center; */
   grid-gap: 1em 5em;
 }
-
 #box {
   position: relative;
   top: 25vh;
@@ -101,15 +88,12 @@ nav h5 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
 }
-
 .links {
   text-decoration: none;
 }
-
 .images {
   height: 350px;
 }
-
 .topAnime-box {
   grid-area: topanime;
 }
@@ -117,21 +101,17 @@ nav h5 {
   grid-area: genres;
   background-color: aquamarine;
 }
-
 .manga-box {
   grid-area: manga;
 }
-
 .random-box {
   grid-area: random;
 }
-
 .foot {
   grid-area: footer;
   /* position: relative; */
   /* top: 25vh; */
 }
-
 .options form {
   padding: 0;
-}
+}  
