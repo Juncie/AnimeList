@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Navbar = (props) => {
 
   return (
-    <div className="nav-bar">
+    <div style={{top:"0", position:"sticky"}} className="nav-bar">
       <nav>
         <section className="logo">
           <h1>
