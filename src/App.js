@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import TopAnime from "./components/TopAnime";
 import TopManga from "./components/TopManga";
 import MoreDetails from "./components/MoreDetails";
+import MangaDetails from "./components/MangaDetails";
 import Results from "./components/Results";
 // Hooks
 import React, { useState } from "react";
@@ -90,6 +91,11 @@ function App() {
           exact
           path="/MoreDetails/:dynamicId"
           render={(props) => <MoreDetails {...props} />}
+        />
+        <Route
+          exact
+          path="/MangaDetails/:dynamicId"
+          render={(props) => <MangaDetails {...props} />}
         />
         <Route
           exact

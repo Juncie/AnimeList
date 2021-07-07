@@ -49,7 +49,7 @@ const MoreDetails = (props) => {
                     <img src={characters.image_url} />    
                 <div className="youtube-vid">
                     
-                    <iframe src={anime.trailer_url} frameborder="2"></iframe>
+                    <iframe src={anime.trailer_url} ></iframe>
                     
                     </div>
                 </div>
