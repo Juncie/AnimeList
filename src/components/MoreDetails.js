@@ -116,7 +116,7 @@ return (
             </div>
             
             <div className="youtube-vid">
-              <iframe src={anime.trailer_url} alt="trailer"></iframe>
+              <iframe src={`${anime.trailer_url}?autoplay=0`} alt="trailer"></iframe>
             </div>
     
     {/* Comment Section */}
