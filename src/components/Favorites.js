@@ -11,7 +11,7 @@ const [anime, setAnime] = useState([])
         axios
         .get(`https://ironrest.herokuapp.com/findAll/AniToonsFavorites?user=${localStorage.getItem("user")}`)
         .then((rex) => {
-            console.log(rex);
+            //console.log(rex);
           setFavorites(rex.data);
         });
 
@@ -26,7 +26,7 @@ const [anime, setAnime] = useState([])
             return favorites.map((eachAnime, i) => {
               console.log(eachAnime);
               return (
-                <Link to={`/MoreDetails/${eachAnime.mal_id}`} key={i} className="links">
+                <Link to={`/MoreDetails/${eachAnime.id}`} key={i} className="links">
                     <div className="card">
                     
                     <div className="card-image" style={{background:`url(${eachAnime?.anime?.image_url})`,

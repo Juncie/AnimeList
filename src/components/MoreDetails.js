@@ -60,13 +60,16 @@ const handleSubmit = async (e) => {
 }
 
 const handleDelete = async () => {
-  await axios.delete(`https://ironrest.herokuapp.com/AniToons2/60e723692684610017dcbc98`)
+  await axios.delete(`https://ironrest.herokuapp.com/deleteCollection/AniToons2/60e723692684610017dcbc98`)
 }
+// delete whole collection: https://ironrest.herokuapp.com/deleteCollection/AniToons2/
+// delete individual item https://ironrest.herokuapp.com/AniToons2/60e723692684610017dcbc98
 
 const handleFavorite = async (e) => {
   e.preventDefault()
   if(localStorage.getItem('user')){
   let obj = {id:props.match.params.dynamicId, type: "favorites", content: user, anime:anime, user:localStorage.getItem('user')}
+  console.log('OBJECT');
   console.log(obj)
   let res = await axios.post(`https://ironrest.herokuapp.com/AniToonsFavorites`, obj)
    console.log(res)}
@@ -87,8 +90,8 @@ const handleFavorite = async (e) => {
 
 const commentSection=()=> {
   return commentSect.map((eachComment) => {
-    console.log(anime.mal_id);
-    console.log(eachComment.id);
+    // console.log(anime.mal_id);
+    // console.log(eachComment.id);
     if(eachComment?.id === props.match.params.dynamicId){    
       return (
       <div style={{background:"white", margin:"10px"}}>
