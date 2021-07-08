@@ -14,23 +14,23 @@ const Navbar = (props) => {
         </section>
 
         <section className="options">
-          <Link to="/">
+          <Link to="/" className="links">
             {" "}
             <h3> Home </h3>{" "}
           </Link>
-          <Link to="/TopAnime/">
+          <Link to="/TopAnime" className="links">
             {" "}
             <h3> Top Anime </h3>{" "}
           </Link>
-          <Link to="/Manga/">
+          <Link to="/TopManga" className="links">
             {" "}
-            <h3> Manga </h3>{" "}
+            <h3> Top Manga </h3>{" "}
           </Link>
           <div>
             <form onSubmit={props.HandleSearch}>            
                   <input
                     type="search"
-                    placeholder="Search"
+                    placeholder="Search AniToons"
                     requiredvalue={props.search}
                     onChange={(e) => props.setSearch(e.target.value)}
                   ></input>

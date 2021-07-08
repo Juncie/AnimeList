@@ -1,46 +1,50 @@
-import React, {useState, useEffect} from 'react';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
-function TopAnime({props}) {
-    const [anime, setAnime] = useState([])
-    useEffect(() =>{
-        GetTopAnime();
-    }, [])
-    
-    const GetTopAnime = async () => {
-        const temp = await fetch(`https://api.jikan.moe/v3/top/anime/1/bypopularity`)
-        .then(res => res.json());
-        setAnime(temp.top);
-    } 
-    
-    const showTop = () => {
-       return anime.map((eachAnime, i) => {
-            return (
-                <Link to={`/MoreDetails/${eachAnime.mal_id}`} key={i} className='links'>
-                <div key={i}>
-                   
-                        <img src={eachAnime.image_url} className="images"/>
-                        
-                        <h2>{eachAnime.title}</h2>
-                         
-                        </div>
-                   
-                    </Link>
-                )
-            })
+function TopAnime() {
+  const [anime, setAnime] = useState([]);
+  useEffect(() => {
+    GetTopAnime();
+  }, []);
+
+  const GetTopAnime = async () => {
+    const temp = await fetch(
+      `https://api.jikan.moe/v3/top/anime/1/bypopularity`
+    ).then((res) => res.json());
+    setAnime(temp.top);
+  };
+
+  
+
+  const showTop = () => {
+    return anime.map((eachAnime, i) => {
+      console.log(eachAnime.mal_id);
+      return (
+        <Link to={`/MoreDetails/${eachAnime.mal_id}`} key={i} className="links">
+            <div className="card">
             
-        }
-
-
-
- return (
-    
-        <div className="show-box">
+            <div className="card-image" style={{background:`url(${eachAnime.image_url})`,
+            backgroundSize:" cover"
+          }}>
+              
+            </div>
             
-        {showTop()}
-        </div>
-    );
+              <h4>{eachAnime.title}</h4>
+          </div>
+        </Link>
+      );
+    });
+  };
+
+  return(
+    <div>
+    <section className="container">
+      {showTop()}
+    </section>
+    
+    </div>
+    )
+  
 }
 
 export default TopAnime;
