@@ -7,6 +7,8 @@ import TopManga from "./components/TopManga";
 import MoreDetails from "./components/MoreDetails";
 import MangaDetails from "./components/MangaDetails";
 import Results from "./components/Results";
+import Favorites from "./components/Favorites";
+import SignUp from "./components/SignUp";
 // Hooks
 import React, { useState } from "react";
 import { Switch, Link, Route, useHistory } from "react-router-dom";
@@ -65,15 +67,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar
-        search={search}
-        setSearch={setSearch}
-        HandleSearch={HandleSearch}
-        animeList={animeList}
-        setAnimeList={setAnimeList}
-        mangaList={mangaList}
-        setMangaList={setMangaList}
-      />
+     
       <Switch>
         <Route exact path="/" render={() => <Home />} />
         <Route
@@ -103,7 +97,26 @@ function App() {
             <Results animeList={animeList} mangaList={mangaList} {...props} />
           )}
         />
+        <Route
+          exact
+          path="/Favorites"
+          render={(props) => <Favorites {...props} />}
+        />
+        <Route
+          exact
+          path="/SignUp"
+          render={(props) => <SignUp {...props} />}
+        />
       </Switch>
+      <Navbar
+        search={search}
+        setSearch={setSearch}
+        HandleSearch={HandleSearch}
+        animeList={animeList}
+        setAnimeList={setAnimeList}
+        mangaList={mangaList}
+        setMangaList={setMangaList}
+      />
     </div>
   );
 }

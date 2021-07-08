@@ -42,24 +42,37 @@ const MoreDetails = (props) => {
 
   //Comment Section
 
-  const handleSubmit = async (e) => {
-    await axios.post(`https://ironrest.herokuapp.com/AniToons2`, {
-      id: props.match.params.dynamicId,
-      type: "comments",
-      content: user,
-    });
-  };
+  //Comment Section 
 
-  const handleFavorite = async () => {
-    await axios.post(`https://ironrest.herokuapp.com/AniToonsFavorites`, {
-      id: props.match.params.dynamicId,
-      type: "favorite",
-    });
-  };
+// const handleSubmit = async (e) => {
+//   await axios.post(`https://ironrest.herokuapp.com/AniToons2`, {id:props.match.params.dynamicId, type: "comments", content: user })
+// }
 
-  // const handleDelete = async () => {
-  //   await axios.delete(`https://ironrest.herokuapp.com/AniToons2/60e723692684610017dcbc98`)
-  // }
+const handleSubmit = async (e) => {
+  e.preventDefault()
+  if(localStorage.getItem('user')){
+  let obj = {id:props.match.params.dynamicId, type: "comments", content: user, anime:anime, user:localStorage.getItem('user')}
+  console.log(obj)
+  let res = await axios.post(`https://ironrest.herokuapp.com/AniToonsFavorites`, obj)
+   console.log(res)}
+   else{alert('must be signed in')}
+
+}
+
+const handleDelete = async () => {
+  await axios.delete(`https://ironrest.herokuapp.com/AniToons2/60e723692684610017dcbc98`)
+}
+
+const handleFavorite = async (e) => {
+  e.preventDefault()
+  if(localStorage.getItem('user')){
+  let obj = {id:props.match.params.dynamicId, type: "favorites", content: user, anime:anime, user:localStorage.getItem('user')}
+  console.log(obj)
+  let res = await axios.post(`https://ironrest.herokuapp.com/AniToonsFavorites`, obj)
+   console.log(res)}
+   else{alert('must be signed in')}
+
+}
 
   const handleChange = (e) => {
     let copyComments = { ...comments };
@@ -68,25 +81,24 @@ const MoreDetails = (props) => {
     let copyUser = { ...user };
     copyUser[e.target.name] = e.target.value;
 
-    setComments(copyComments);
-    setUser(copyUser);
-  };
+ setComments(copyComments)
+ setUser(copyUser)  
+}
 
-  const commentSection = () => {
-    return commentSect.map((eachComment) => {
-      console.log(anime.mal_id);
-      console.log(eachComment.id);
-      if (eachComment?.id === props.match.params.dynamicId) {
-        return (
-          <div style={{ background: "white", margin: "10px" }}>
-            <h3>{eachComment.content.user}</h3>
-            <p>{eachComment.content.comment}</p>
-          </div>
-        );
-      }
-      return;
-    });
-  };
+const commentSection=()=> {
+  return commentSect.map((eachComment) => {
+    console.log(anime.mal_id);
+    console.log(eachComment.id);
+    if(eachComment?.id === props.match.params.dynamicId){    
+      return (
+      <div style={{background:"white", margin:"10px"}}>
+        <h3>{eachComment?.user}</h3>
+        <p>{eachComment.content?.comment}</p>
+      </div>
+    )
+}
+  return    
+ })}
 
   return (
     <div className="more-details">
@@ -101,9 +113,8 @@ const MoreDetails = (props) => {
               <h4>Episodes: {anime.episodes}</h4>
               <h4>Airing: {anime.status}</h4>
               <h4>Air Dates: {anime.aired?.string}</h4>
-              <button style={{ borderRadius: "5px", padding: "5px" }} onClick={handleFavorite}>
-                Favorite
-              </button>
+              <button style={{borderRadius:"5px", padding: "5px"}}  onClick={handleFavorite}>Favorite</button>
+              <button style={{borderRadius:"5px", padding: "5px"}}  onClick={handleDelete}>DeleteDB</button>
             </div>
           </div>
 
@@ -118,21 +129,28 @@ const MoreDetails = (props) => {
             <div className="char-imgs">{showCharacters()}</div>
 
             <div className="youtube-vid">
-              <iframe src={anime.trailer_url} alt="trailer"></iframe>
+              <iframe src={`${anime.trailer_url}?autoplay=0`} alt="trailer"></iframe>
             </div>
 
             {/* Comment Section */}
             <div className="comment-section">
-              <form onSubmit={handleSubmit}>
-                <input onChange={handleChange} type="text" placeholder="name" name="user" required />
-
-                <textarea onChange={handleChange} type="text" name="comment" required />
-
-                <input style={{ textAlign: "center" }} type="submit" />
-              </form>
-
-              <div>{commentSection()}</div>
+            
+            <form onSubmit={handleSubmit}>
+                
+                {/* <input onChange={handleChange} type="text" placeholder="name" name="user" required /> */}
+                
+                <textarea onChange={handleChange} type="text" name="comment" required/>
+                
+                <input style={{textAlign:"center"}} type="submit" />
+           
+            </form>
+          
+            <div>
+              {commentSection()}
             </div>
+            
+            </div>
+            
           </div>
         </section>
       </main>

@@ -6,20 +6,16 @@ const Navbar = (props) => {
   return (
     <div style={{top:"0", position:"sticky"}} className="nav-bar">
       <nav>
-        <Link to="/"  className="links">
-          <section className="logo">
-            <h1>
-              Ani<span className="Toons">Toons</span>
-            </h1>
-            <h5>Everything you never knew you wanted</h5>
-          </section>
-        </Link>
+      <Link to="/" className="links">
+        <section className="logo">
+          <h1>
+            Ani<span className="Toons">Toons</span>
+          </h1>
+          <h5>Everything you never knew you wanted</h5>
+        </section>
+      </Link>
 
         <section className="options">
-          <Link to="/" className="links">
-            {" "}
-            <h3> Home </h3>{" "}
-          </Link>
           <Link to="/TopAnime" className="links">
             {" "}
             <h3> Top Anime </h3>{" "}
@@ -28,6 +24,18 @@ const Navbar = (props) => {
             {" "}
             <h3> Top Manga </h3>{" "}
           </Link>
+
+
+          {localStorage.getItem('user')?
+          <Link to="/Favorites" className="links">
+            {" "}
+            <h3>{localStorage.getItem('user')} Favorites </h3>{" "}
+          </Link> : 
+          <Link to="/SignUp" className="links">
+            {" "}
+            <h3> Sign Up </h3>{" "}
+          </Link>
+          }
           <div>
             <form onSubmit={props.HandleSearch}>
                   <input

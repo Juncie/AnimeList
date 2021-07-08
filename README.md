@@ -2,6 +2,8 @@
 
 # Anime List API
 
+-- netlify.app deployed website link: https://anitoons.netlify.app/ --
+
 Hey there! This is the Github repo for our Anime List API project. Our team is composed of Brandon and Mario of the Jun 2021 Web Development cohort.
 
 Our project's vision is to create an Anime and Manga API that can search, sort, return information about anime series and characters, and to be able to rate them and post comments.
