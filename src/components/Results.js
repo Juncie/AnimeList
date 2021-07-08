@@ -25,7 +25,7 @@ function Results(props) {
     return props.mangaList.map((ele) => {
       return (
         <article className="anime-card">
-          <Link to={`/MoreDetails/${ele.mal_id}`} className="links">
+          <Link to={`/MangaDetails/${ele.mal_id}`} className="links">
             <figure>
               <img src={ele.image_url} alt="Anime" />
             </figure>

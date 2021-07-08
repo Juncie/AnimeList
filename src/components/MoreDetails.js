@@ -94,9 +94,31 @@ return (
                 
                 <textarea onChange={handleChange} type="text" name="comment"/>
                 
+<<<<<<< HEAD
                 <input style={{textAlign:"center"}} type="submit" />
             
             </form>
+=======
+                <div className="col-2">
+                    <h1>{anime.title}</h1>
+                    <p style={{textAlign:"justify"}}>{anime.background}</p>
+                    <img src={characters.image_url} />    
+                <div className="youtube-vid">
+                    
+                    <iframe src={anime.trailer_url} ></iframe>
+                    
+                    </div>
+                </div>
+             
+              
+              </section>
+              
+               
+              
+             </main>
+             
+          
+>>>>>>> 9bb8d3cc427a477ca264945c6597087d2154ab0c
             
             </div>
             </div>

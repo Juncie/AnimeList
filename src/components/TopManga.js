@@ -19,7 +19,7 @@ const TopManga = () => {
     return topManga.map((eachManga, i) => {
       console.log(eachManga.mal_id);
       return (
-        <Link to={`/MoreDetails/${eachManga.mal_id}`} key={i} className="links">
+        <Link to={`/MangaDetails/${eachManga.mal_id}`} key={i} className="links">
           <div key={i}>
             <img src={eachManga.image_url} className="images" alt="top manga"/>
 
