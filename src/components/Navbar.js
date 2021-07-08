@@ -27,7 +27,7 @@ const Navbar = (props) => {
             <h3> Top Manga </h3>{" "}
           </Link>
           <div>
-            <form onSubmit={props.HandleSearch}>            
+            <form onSubmit={props.HandleSearch}>
                   <input
                     type="search"
                     placeholder="Search AniToons"

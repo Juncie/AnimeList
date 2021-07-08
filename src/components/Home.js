@@ -3,13 +3,12 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
     return (
-        <div className='home-page'>
-                <div className="wrapper">    
-                
-                
-                </div>
-        </div>
-    );
+    <div>
+        
+    </div>
+        
+
+        );
 };
 
 export default Home;

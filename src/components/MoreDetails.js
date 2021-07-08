@@ -6,16 +6,26 @@ const MoreDetails = (props) => {
   const [anime, setAnime] = useState([]);
   const [characters, setCharacters] = useState([]);
   const [comments, setComments] = useState({})
+  const [user, setUser] = useState({})
+  const[commentSect, setCommentSect]=useState([])
 
   useEffect(() => {
-    const res = axios.get(`https://api.jikan.moe/v3/anime/${props.match.params.dynamicId}`).then((res) => {
+      axios.get(`https://api.jikan.moe/v3/anime/${props.match.params.dynamicId}`).then((res) => {
       setAnime(res.data);
     });
-    const ren = axios
+    axios
       .get(`https://api.jikan.moe/v3/anime/${props.match.params.dynamicId}/characters_staff`)
       .then((ren) => {
         setCharacters(ren.data.characters);
       });
+
+      // GET for CommentSection
+    axios
+      .get(`https://ironrest.herokuapp.com/AniToons2`)
+      .then((rex) => {
+        setCommentSect(rex.data);
+      });
+
   }, []);
 
   const showCharacters = () => {
@@ -32,27 +42,49 @@ const MoreDetails = (props) => {
     })
   };
 
-//Comment Section 
 
+  //Comment Section 
 
-const postFunc = async () => {
- 
-  let res = await axios.post(`https://ironrest.herokuapp.com/AniToons`, {_id:"comments", comments: comments})
-    .then((res) => setComments(res))
-    console.log('this is working');
+const handleSubmit = async (e) => {
+  await axios.post(`https://ironrest.herokuapp.com/AniToons2`, {id:props.match.params.dynamicId, type: "comments", content: user })
 }
+
+const handleFavorite = async () => {
+  await axios.post(`https://ironrest.herokuapp.com/AniToons2`, {id:props.match.params.dynamicId, type: "favorite"})
+
+}
+
+// const handleDelete = async () => {
+//   await axios.delete(`https://ironrest.herokuapp.com/AniToons2/60e723692684610017dcbc98`)
+// }
+
 
 const handleChange = (e) => {
-  console.log(e.target.name, e.target.value)
-}
-
-const handleSubmit = (e) =>{
-  e.preventDefault();
-  console.log(`${comments.user} submitted a post!`)
-}
-
+ let copyComments = {...comments}
+ copyComments[e.target.name] = e.target.value
  
+ let copyUser = {...user}
+ copyUser[e.target.name] =e.target.value
 
+ setComments(copyComments)
+ setUser(copyUser)
+  
+}
+
+const commentSection=()=> {
+  return commentSect.map((eachComment) => {
+    console.log(anime.mal_id);
+    console.log(eachComment.id);
+    if(eachComment?.id === props.match.params.dynamicId){    
+      return (
+      <div style={{background:"white", margin:"10px"}}>
+        <h3>{eachComment.content.user}</h3>
+        <p>{eachComment.content.comment}</p>
+      </div>
+    )
+}
+  return    
+ })}
 
 return (
     <div className="more-details">
@@ -67,6 +99,7 @@ return (
               <h4>Episodes: {anime.episodes}</h4>
               <h4>Airing: {anime.status}</h4>
               <h4>Air Dates: {anime.aired?.string}</h4>
+              <button style={{borderRadius:"5px", padding: "5px"}}  onClick={handleFavorite}>Favorite</button>
             </div>
           </div>
 
@@ -85,14 +118,15 @@ return (
             <div className="youtube-vid">
               <iframe src={anime.trailer_url} alt="trailer"></iframe>
             </div>
+    
     {/* Comment Section */}
             <div className="comment-section">
             
             <form onSubmit={handleSubmit}>  
                 
-                <input onChange={handleChange} type="text" placeholder="name" name="user" />
+                <input onChange={handleChange} type="text" placeholder="name" name="user" required />
                 
-                <textarea onChange={handleChange} type="text" name="comment"/>
+                <textarea onChange={handleChange} type="text" name="comment" required/>
                 
                 <input style={{textAlign:"center"}} type="submit" />
             <div className="col-2">
@@ -105,7 +139,11 @@ return (
                     
                     </div>
                 </div>
-            </form>
+            </form>            
+          
+            <div>
+              {commentSection()}
+            </div>
             
             </div>
             </div>
