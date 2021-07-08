@@ -16,6 +16,7 @@ Our goals for this project are to:
 We hope you find good use for our API. Thanks for checking our project out!
 
 Useful links:
+
 // JIKAN ANIME API Guide: https://www.youtube.com/watch?v=ZZA-QrBBM3YG
 
 // Jikan API url: https://jikan.docs.apiary.io/#
