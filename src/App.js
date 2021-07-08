@@ -7,7 +7,6 @@ import TopManga from "./components/TopManga";
 import MoreDetails from "./components/MoreDetails";
 import MangaDetails from "./components/MangaDetails";
 import Results from "./components/Results";
-import Test from "./components/Test";
 // Hooks
 import React, { useState } from "react";
 import { Switch, Link, Route, useHistory } from "react-router-dom";
@@ -75,7 +74,6 @@ function App() {
         mangaList={mangaList}
         setMangaList={setMangaList}
       />
-        <Test />
       <Switch>
         <Route exact path="/" render={() => <Home />} />
         <Route
