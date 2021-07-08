@@ -6,12 +6,14 @@ const Navbar = (props) => {
   return (
     <div style={{top:"0", position:"sticky"}} className="nav-bar">
       <nav>
-        <section className="logo">
-          <h1>
-            Ani<span className="Toons">Toons</span>
-          </h1>
-          <h5>Everything you never knew you wanted</h5>
-        </section>
+        <Link to="/"  className="links">
+          <section className="logo">
+            <h1>
+              Ani<span className="Toons">Toons</span>
+            </h1>
+            <h5>Everything you never knew you wanted</h5>
+          </section>
+        </Link>
 
         <section className="options">
           <Link to="/" className="links">

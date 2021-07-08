@@ -51,7 +51,7 @@ const MoreDetails = (props) => {
   };
 
   const handleFavorite = async () => {
-    await axios.post(`https://ironrest.herokuapp.com/AniToons2`, {
+    await axios.post(`https://ironrest.herokuapp.com/AniToonsFavorites`, {
       id: props.match.params.dynamicId,
       type: "favorite",
     });

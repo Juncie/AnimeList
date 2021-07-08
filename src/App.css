@@ -27,6 +27,7 @@ nav {
 
 .links{
   text-decoration: none;
+  color: white;
 }
 nav h1 {
   font-size: 32px;
@@ -58,38 +59,31 @@ nav h5 {
   width: 15vw;
 }
 /* HOME */
-.wrapper {
-  display: grid;
-  height: 85%;
-  grid-template-columns: repeat(2, 0.4fr);
-  grid-template-rows: 2em 15em 15em 2em;
-  grid-template-areas:
-    "searchbar searchbar"
-    "topanime genres"
-    "manga random"
-    "footer footer";
-  justify-content: center;
-  align-content: center;
-  grid-gap: 1em 5em;
-  overflow: hidden;
+.slides .slick-prev,
+.slides .slick-next {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
 }
-#box {
+
+
+.slides {
   position: relative;
-  background: white;
-  border: black 1px solid;
-  border-radius: 10px;
 }
-.home-page {
-  height: 100vh;
+
+.slides .slick-prev,
+.slides .slick-next {
+  position: absolute;
+  top: 50%;
+  z-index:1;
 }
-.home-page input {
-  grid-area: searchbar;
-  height: 2em;
-  align-self: center;
-  position: relative;
-  border-radius: 10px;
-  text-align: center;
-  font-size: 1em;
+
+.slides .slick-prev {
+  left: 5%;
+}
+
+.slides .slick-next {
+  right: 5%;
 }
 
 /* TopAnime */
