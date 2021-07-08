@@ -17,11 +17,15 @@ We hope you find good use for our API. Thanks for checking our project out!
 
 Useful links:
 // JIKAN ANIME API Guide: https://www.youtube.com/watch?v=ZZA-QrBBM3YG
+
 // Jikan API url: https://jikan.docs.apiary.io/#
 
 // Niko's ironrest API: https://ironrest.herokuapp.com
+
 // Niko's ironrest API Usage guide: https://github.com/Tzikas/MONGO_REST
 
 // Kitsu API: https://kitsu.docs.apiary.io/#reference/anime/anime/fetch-resource
+
 // Kitsu anime: https://kitsu.io/api/edge/anime/
+
 // Kitsu.io (MyAnimeList clone): https://kitsu.io/anime/one-piece
