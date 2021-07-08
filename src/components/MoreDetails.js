@@ -5,12 +5,12 @@ import axios from "axios";
 const MoreDetails = (props) => {
   const [anime, setAnime] = useState([]);
   const [characters, setCharacters] = useState([]);
-  const [comments, setComments] = useState({})
-  const [user, setUser] = useState({})
-  const[commentSect, setCommentSect]=useState([])
+  const [comments, setComments] = useState({});
+  const [user, setUser] = useState({});
+  const [commentSect, setCommentSect] = useState([]);
 
   useEffect(() => {
-      axios.get(`https://api.jikan.moe/v3/anime/${props.match.params.dynamicId}`).then((res) => {
+    axios.get(`https://api.jikan.moe/v3/anime/${props.match.params.dynamicId}`).then((res) => {
       setAnime(res.data);
     });
     axios
@@ -19,29 +19,28 @@ const MoreDetails = (props) => {
         setCharacters(ren.data.characters);
       });
 
-      // GET for CommentSection
-    axios
-      .get(`https://ironrest.herokuapp.com/AniToons2`)
-      .then((rex) => {
-        setCommentSect(rex.data);
-      });
-
+    // GET for CommentSection
+    axios.get(`https://ironrest.herokuapp.com/AniToons2`).then((rex) => {
+      setCommentSect(rex.data);
+    });
   }, []);
 
   const showCharacters = () => {
-    return characters?.filter((char) => char.role === "Main").map(ele =>{
+    return characters
+      ?.filter((char) => char.role === "Main")
+      .map((ele) => {
         return (
-            <div>
-              <div className="char.imgs-parent">
-                  <img className="character-images" width="100em" src={ele.image_url}></img>
-                  <p>{ele.name}</p>
-                </div>
-                
+          <div>
+            <div className="char.imgs-parent">
+              <img className="character-images" width="100em" src={ele.image_url}></img>
+              <p>{ele.name}</p>
             </div>
-        )
-    })
+          </div>
+        );
+      });
   };
 
+  //Comment Section
 
   //Comment Section 
 
@@ -75,13 +74,12 @@ const handleFavorite = async (e) => {
 
 }
 
+  const handleChange = (e) => {
+    let copyComments = { ...comments };
+    copyComments[e.target.name] = e.target.value;
 
-const handleChange = (e) => {
- let copyComments = {...comments}
- copyComments[e.target.name] = e.target.value
- 
- let copyUser = {...user}
- copyUser[e.target.name] =e.target.value
+    let copyUser = { ...user };
+    copyUser[e.target.name] = e.target.value;
 
  setComments(copyComments)
  setUser(copyUser)  
@@ -102,7 +100,7 @@ const commentSection=()=> {
   return    
  })}
 
-return (
+  return (
     <div className="more-details">
       <main className="more-details-info">
         <section className="sec-1">
@@ -110,7 +108,7 @@ return (
             <img src={anime.image_url} />
 
             <div>
-              <h4>Type: {anime.type}</h4> 
+              <h4>Type: {anime.type}</h4>
               <h4>Score: {anime.score}</h4>
               <h4>Episodes: {anime.episodes}</h4>
               <h4>Airing: {anime.status}</h4>
@@ -123,20 +121,18 @@ return (
           <div className="col-2">
             <h1>{anime.title}</h1>
             <p style={{ textAlign: "justify" }}>{anime.synopsis}</p>
-            
+
             <div>
-                <h2>Main characters</h2>
+              <h2>Main characters</h2>
             </div>
-             
-             <div className="char-imgs">
-                 {showCharacters()}
-            </div>
-            
+
+            <div className="char-imgs">{showCharacters()}</div>
+
             <div className="youtube-vid">
               <iframe src={`${anime.trailer_url}?autoplay=0`} alt="trailer"></iframe>
             </div>
-    
-    {/* Comment Section */}
+
+            {/* Comment Section */}
             <div className="comment-section">
             
             <form onSubmit={handleSubmit}>
@@ -154,7 +150,8 @@ return (
             </div>
             
             </div>
-            </div>
+            
+          </div>
         </section>
       </main>
     </div>
