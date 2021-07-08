@@ -122,24 +122,15 @@ return (
     {/* Comment Section */}
             <div className="comment-section">
             
-            <form onSubmit={handleSubmit}>  
+            <form onSubmit={handleSubmit}>
                 
                 <input onChange={handleChange} type="text" placeholder="name" name="user" required />
                 
                 <textarea onChange={handleChange} type="text" name="comment" required/>
                 
                 <input style={{textAlign:"center"}} type="submit" />
-            <div className="col-2">
-                    <h1>{anime.title}</h1>
-                    <p style={{textAlign:"justify"}}>{anime.background}</p>
-                    <img src={characters.image_url} />    
-                <div className="youtube-vid">
-                    
-                    <iframe src={anime.trailer_url} ></iframe>
-                    
-                    </div>
-                </div>
-            </form>            
+           
+            </form>
           
             <div>
               {commentSection()}
