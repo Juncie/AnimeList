@@ -45,18 +45,35 @@ const MoreDetails = (props) => {
 
   //Comment Section 
 
-const handleSubmit = async (e) => {
-  await axios.post(`https://ironrest.herokuapp.com/AniToons2`, {id:props.match.params.dynamicId, type: "comments", content: user })
-}
-
-const handleFavorite = async () => {
-  await axios.post(`https://ironrest.herokuapp.com/AniToons2`, {id:props.match.params.dynamicId, type: "favorite"})
-
-}
-
-// const handleDelete = async () => {
-//   await axios.delete(`https://ironrest.herokuapp.com/AniToons2/60e723692684610017dcbc98`)
+// const handleSubmit = async (e) => {
+//   await axios.post(`https://ironrest.herokuapp.com/AniToons2`, {id:props.match.params.dynamicId, type: "comments", content: user })
 // }
+
+const handleSubmit = async (e) => {
+  e.preventDefault()
+  if(localStorage.getItem('user')){
+  let obj = {id:props.match.params.dynamicId, type: "comments", content: user, anime:anime, user:localStorage.getItem('user')}
+  console.log(obj)
+  let res = await axios.post(`https://ironrest.herokuapp.com/AniToonsFavorites`, obj)
+   console.log(res)}
+   else{alert('must be signed in')}
+
+}
+
+const handleDelete = async () => {
+  await axios.delete(`https://ironrest.herokuapp.com/AniToons2/60e723692684610017dcbc98`)
+}
+
+const handleFavorite = async (e) => {
+  e.preventDefault()
+  if(localStorage.getItem('user')){
+  let obj = {id:props.match.params.dynamicId, type: "favorites", content: user, anime:anime, user:localStorage.getItem('user')}
+  console.log(obj)
+  let res = await axios.post(`https://ironrest.herokuapp.com/AniToonsFavorites`, obj)
+   console.log(res)}
+   else{alert('must be signed in')}
+
+}
 
 
 const handleChange = (e) => {
@@ -67,8 +84,7 @@ const handleChange = (e) => {
  copyUser[e.target.name] =e.target.value
 
  setComments(copyComments)
- setUser(copyUser)
-  
+ setUser(copyUser)  
 }
 
 const commentSection=()=> {
@@ -78,8 +94,8 @@ const commentSection=()=> {
     if(eachComment?.id === props.match.params.dynamicId){    
       return (
       <div style={{background:"white", margin:"10px"}}>
-        <h3>{eachComment.content.user}</h3>
-        <p>{eachComment.content.comment}</p>
+        <h3>{eachComment?.user}</h3>
+        <p>{eachComment.content?.comment}</p>
       </div>
     )
 }
@@ -100,6 +116,7 @@ return (
               <h4>Airing: {anime.status}</h4>
               <h4>Air Dates: {anime.aired?.string}</h4>
               <button style={{borderRadius:"5px", padding: "5px"}}  onClick={handleFavorite}>Favorite</button>
+              <button style={{borderRadius:"5px", padding: "5px"}}  onClick={handleDelete}>DeleteDB</button>
             </div>
           </div>
 
@@ -124,7 +141,7 @@ return (
             
             <form onSubmit={handleSubmit}>
                 
-                <input onChange={handleChange} type="text" placeholder="name" name="user" required />
+                {/* <input onChange={handleChange} type="text" placeholder="name" name="user" required /> */}
                 
                 <textarea onChange={handleChange} type="text" name="comment" required/>
                 

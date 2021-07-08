@@ -24,10 +24,18 @@ const Navbar = (props) => {
             {" "}
             <h3> Top Manga </h3>{" "}
           </Link>
+
+
+          {localStorage.getItem('user')?
           <Link to="/Favorites" className="links">
             {" "}
-            <h3> Favorites </h3>{" "}
+            <h3>{localStorage.getItem('user')} Favorites </h3>{" "}
+          </Link> : 
+          <Link to="/SignUp" className="links">
+            {" "}
+            <h3> Sign Up </h3>{" "}
           </Link>
+          }
           <div>
             <form onSubmit={props.HandleSearch}>
                   <input

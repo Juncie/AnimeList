@@ -7,6 +7,8 @@ import TopManga from "./components/TopManga";
 import MoreDetails from "./components/MoreDetails";
 import MangaDetails from "./components/MangaDetails";
 import Results from "./components/Results";
+import Favorites from "./components/Favorites";
+import SignUp from "./components/SignUp";
 // Hooks
 import React, { useState } from "react";
 import { Switch, Link, Route, useHistory } from "react-router-dom";
@@ -102,6 +104,16 @@ function App() {
           render={(props) => (
             <Results animeList={animeList} mangaList={mangaList} {...props} />
           )}
+        />
+        <Route
+          exact
+          path="/Favorites"
+          render={(props) => <Favorites {...props} />}
+        />
+        <Route
+          exact
+          path="/SignUp"
+          render={(props) => <SignUp {...props} />}
         />
       </Switch>
     </div>
