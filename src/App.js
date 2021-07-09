@@ -22,8 +22,6 @@ function App() {
   const HandleSearch = (e) => {
     e.preventDefault();
 
-    console.log("App.js - HandleSearch user input:");
-    console.log(search);
     FetchAnime(search); //Call FetchAnime function
 
     FetchManga(search);

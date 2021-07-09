@@ -9,24 +9,15 @@ function SignUp(props) {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    // let res = await axios.get(
-    //   `https://ironrest.herokuapp.com/findOne/AniToonsFavorites?user=${name}`
-    // );
-    // console.log(res);
-    // if (!res.data) {
-      localStorage.setItem("user", name);
-      props.history.push('/')
-    // } else {
-    //   alert("user with same name");
-    // }
+    e.preventDefault()  
+     localStorage.setItem("user", name);
   };
   return (
     <div>
       <form onSubmit={handleSubmit}>
         <input
           onChange={handleChange}
-          type="text"
+          type="text" 
           placeholder="name"
           name="user"
           required

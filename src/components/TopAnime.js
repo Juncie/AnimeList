@@ -20,9 +20,9 @@ function TopAnime() {
     return anime.map((eachAnime, i) => {
       console.log(eachAnime.mal_id);
       return (
+        
         <Link to={`/MoreDetails/${eachAnime.mal_id}`} key={i} className="links">
             <div className="card">
-            
             <div className="card-image" style={{background:`url(${eachAnime.image_url})`,
             backgroundSize:" cover"
           }}>
@@ -35,9 +35,10 @@ function TopAnime() {
       );
     });
   };
-
+  
   return(
     <div>
+    <h4>TOP ANIME</h4>
     <section className="container">
       {showTop()}
     </section>

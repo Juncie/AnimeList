@@ -49,7 +49,6 @@ const MoreDetails = (props) => {
 // }
 
 const handleSubmit = async (e) => {
-  e.preventDefault()
   if(localStorage.getItem('user')){
   let obj = {id:props.match.params.dynamicId, type: "comments", content: user, anime:anime, user:localStorage.getItem('user')}
   console.log(obj)
@@ -66,7 +65,6 @@ const handleDelete = async () => {
 // delete individual item https://ironrest.herokuapp.com/AniToons2/60e723692684610017dcbc98
 
 const handleFavorite = async (e) => {
-  e.preventDefault()
   if(localStorage.getItem('user')){
   let obj = {id:props.match.params.dynamicId, type: "favorites", content: user, anime:anime, user:localStorage.getItem('user')}
   console.log('OBJECT');
