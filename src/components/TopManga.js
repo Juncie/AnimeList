@@ -19,7 +19,7 @@ function TopManga() {
     return topManga.map((eachManga, i) => {
       //console.log(eachManga.mal_id);
       return (
-        <Link to={`/MoreDetails/${eachManga.mal_id}`} key={i} className="links">
+        <Link to={`/MangaDetails/${eachManga.mal_id}`} key={i} className="links">
           <div className="card">
             <div
               className="card-image"
