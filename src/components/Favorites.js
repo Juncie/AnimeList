@@ -35,7 +35,7 @@ const [anime, setAnime] = useState([])
                       
                     </div>
                     
-                      <h4>{eachAnime.content?.comment}</h4>
+                      <h4>{eachAnime.anime.title}</h4>
                   </div>
                 </Link>
               );
@@ -44,7 +44,6 @@ const [anime, setAnime] = useState([])
 
     return (
         <div className='container'>
-            FAVORITES IS WORKING
             <button onClick={()=> {localStorage.removeItem('user');props.history.push('/')}}>Logout</button>
             {showFavorites()}
         </div>
