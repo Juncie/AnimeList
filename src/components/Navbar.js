@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = (props) => {
 
+
   return (
     <div style={{top:"0", position:"sticky", zIndex:"2"}} className="nav-bar">
       <nav onScroll={{background:'grey'}}>
@@ -25,10 +26,11 @@ const Navbar = (props) => {
             <h4> Top Manga </h4>{" "}
           </Link>
 
-          {localStorage.getItem('user')?
+
+          {props.name?
           <Link to="/Favorites" className="links">
             {" "}
-            <h4>{localStorage.getItem('user')}'s  Profile </h4>{" "}
+            <h4>{props.name}'s  Profile </h4>{" "}
           </Link> : 
           <Link to="/SignUp" className="links">
             {" "}

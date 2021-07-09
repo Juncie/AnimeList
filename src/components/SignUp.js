@@ -11,6 +11,7 @@ function SignUp(props) {
   const handleSubmit = async (e) => {
     e.preventDefault()  
      localStorage.setItem("user", name);
+     props.setName(name)
      //console.log(name);
      //console.log(localStorage);
      props.history.push("/Favorites")
