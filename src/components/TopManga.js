@@ -36,7 +36,14 @@ function TopManga() {
     });
   };
 
-  return <div className="container">{showTopManga()}</div>;
+  return (
+    <div>
+    <h1 style={{fontFamily:"Luckiest Guy", fontSize: '64px'}}>TOP MANGA</h1>
+    <section className="container">
+      {showTopManga()}
+    </section>
+    
+    </div>
+  );
 }
-
 export default TopManga;

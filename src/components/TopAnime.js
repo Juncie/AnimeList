@@ -38,7 +38,7 @@ function TopAnime() {
 
   return (
     <div>
-    <h1>TOP ANIME</h1>
+    <h1 style={{fontFamily:"Luckiest Guy", fontSize: '64px'}}>TOP ANIME</h1>
     <section className="container">
       {showTop()}
     </section>
