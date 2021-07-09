@@ -5,7 +5,7 @@ import axios from "axios";
 const MoreDetails = (props) => {
   const [anime, setAnime] = useState([]);
   const [characters, setCharacters] = useState([]);
-  const [comments, setComments] = useState({});
+  const [comments, setComments] = useState("");
   const [user, setUser] = useState({});
   const [commentSect, setCommentSect] = useState([]);
 
@@ -20,7 +20,7 @@ const MoreDetails = (props) => {
       });
 
     // GET for CommentSection
-    axios.get(`https://ironrest.herokuapp.com/AniToons2`).then((rex) => {
+    axios.get(`https://ironrest.herokuapp.com/AniToonsComments`).then((rex) => {
       setCommentSect(rex.data);
     });
   }, []);
@@ -40,66 +40,52 @@ const MoreDetails = (props) => {
       });
   };
 
-  //Comment Section
-
-  //Comment Section 
-
-// const handleSubmit = async (e) => {
-//   await axios.post(`https://ironrest.herokuapp.com/AniToons2`, {id:props.match.params.dynamicId, type: "comments", content: user })
-// }
-
+//console.log(comments);
+// Comment post
 const handleSubmit = async (e) => {
+  e.preventDefault()
   if(localStorage.getItem('user')){
-  let obj = {id:props.match.params.dynamicId, type: "comments", content: user, anime:anime, user:localStorage.getItem('user')}
-  console.log(obj)
-  let res = await axios.post(`https://ironrest.herokuapp.com/AniToonsFavorites`, obj)
-   console.log(res)}
-   else{alert('must be signed in')}
+  let obj = {animeId: props.match.params.dynamicId, user: localStorage.getItem('user'), type: "comments", comment: comments }
+  //console.log(obj)
+  let res = await axios.post(`https://ironrest.herokuapp.com/AniToonsComments`, obj)
+   //console.log(res)
+  } else {alert('You must be signed in to comment.')}
 
 }
 
+// Favorite post
+const handleFavorite = async (e) => {
+  if(localStorage.getItem('user')){
+    let obj = {animeId: props.match.params.dynamicId, user: localStorage.getItem('user'), type: "favorites", anime: anime}
+    //console.log('OBJECT');
+    //console.log(obj)
+    let res = await axios.post(`https://ironrest.herokuapp.com/AniToonsFavorites`, obj)
+    //console.log(res)
+  } else {alert('You must be signed in to favorite.')}
+  
+}
+
 const handleDelete = async () => {
-  await axios.delete(`https://ironrest.herokuapp.com/deleteCollection/AniToons2/60e723692684610017dcbc98`)
+  await axios.delete(`https://ironrest.herokuapp.com/deleteCollection/AniToonsFavorites/`)
 }
 // delete whole collection: https://ironrest.herokuapp.com/deleteCollection/AniToons2/
 // delete individual item https://ironrest.herokuapp.com/AniToons2/60e723692684610017dcbc98
 
-const handleFavorite = async (e) => {
-  if(localStorage.getItem('user')){
-  let obj = {id:props.match.params.dynamicId, type: "favorites", content: user, anime:anime, user:localStorage.getItem('user')}
-  console.log('OBJECT');
-  console.log(obj)
-  let res = await axios.post(`https://ironrest.herokuapp.com/AniToonsFavorites`, obj)
-   console.log(res)}
-   else{alert('must be signed in')}
-
-}
-
-  const handleChange = (e) => {
-    let copyComments = { ...comments };
-    copyComments[e.target.name] = e.target.value;
-
-    let copyUser = { ...user };
-    copyUser[e.target.name] = e.target.value;
-
- setComments(copyComments)
- setUser(copyUser)  
-}
-
 const commentSection=()=> {
   return commentSect.map((eachComment) => {
     // console.log(anime.mal_id);
-    // console.log(eachComment.id);
-    if(eachComment?.id === props.match.params.dynamicId){    
+    // console.log(eachComment.animeId);
+    if(eachComment?.animeId === props.match.params.dynamicId && eachComment?.type === "comments"){    
       return (
       <div style={{background:"white", margin:"10px"}}>
         <h3>{eachComment?.user}</h3>
-        <p>{eachComment.content?.comment}</p>
+        <p>{eachComment?.comment}</p>
       </div>
-    )
-}
-  return    
- })}
+      )
+    }
+ }
+ 
+ )}
 
   return (
     <div className="more-details">
@@ -132,7 +118,7 @@ const commentSection=()=> {
             <div className="char-imgs">{showCharacters()}</div>
 
             <div className="youtube-vid">
-              <iframe src={`${anime.trailer_url}?autoplay=0`} alt="trailer"></iframe>
+              <iframe src={`${anime.trailer_url}?autoplay=0`} alt="trailer" title="video"></iframe>
             </div>
 
             {/* Comment Section */}
@@ -142,7 +128,7 @@ const commentSection=()=> {
                 
                 {/* <input onChange={handleChange} type="text" placeholder="name" name="user" required /> */}
                 
-                <textarea onChange={handleChange} type="text" name="comment" required/>
+                <textarea onChange={(e) => setComments(e.target.value)} type="text" name="comment" required/>
                 
                 <input style={{textAlign:"center"}} type="submit" />
            

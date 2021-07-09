@@ -49,6 +49,9 @@ function MangaDetails(props) {
             <p style={{ textAlign: "justify" }}>{manga.background}</p>
             <img src={characters.image_url} />
             <div className="youtube-vid"></div>
+
+
+
           </div>
         </section>
       </main>

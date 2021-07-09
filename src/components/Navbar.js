@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = (props) => {
 
+
   return (
     <div style={{top:"0", position:"sticky", zIndex:"2"}} className="nav-bar">
       <nav onScroll={{background:'grey'}}>
@@ -26,10 +27,14 @@ const Navbar = (props) => {
           </Link>
 
 
-          {localStorage.getItem('user')?
+          {props.name?
           <Link to="/Favorites" className="links">
             {" "}
+<<<<<<< HEAD
             <h4>{localStorage.getItem('user')}'s  Profile </h4>{" "}
+=======
+            <h4>{props.name}'s  Profile </h4>{" "}
+>>>>>>> f3cef70b1d473d9ec4c7c11e9050816f8c974750
           </Link> : 
           <Link to="/SignUp" className="links">
             {" "}
@@ -46,9 +51,14 @@ const Navbar = (props) => {
                     requiredvalue={props.search}
                     onChange={(e) => props.setSearch(e.target.value)}
                   ></input>
+<<<<<<< HEAD
             </form>
             
 
+=======
+                  <button className="nav-bar-search-button" type="submit" placeholder="no"><img width="20%" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/docomo/205/left-pointing-magnifying-glass_1f50d.png" /></button>
+            </form>            
+>>>>>>> f3cef70b1d473d9ec4c7c11e9050816f8c974750
           </div>
         </section>
       </nav>

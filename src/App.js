@@ -17,6 +17,9 @@ function App() {
   const [search, setSearch] = useState("");
   const [animeList, setAnimeList] = useState([]);
   const [mangaList, setMangaList] = useState([]);
+
+  let [name, setName] = useState(localStorage.getItem("user"));
+
   let history = useHistory();
 
   const HandleSearch = (e) => {
@@ -73,6 +76,8 @@ function App() {
         setAnimeList={setAnimeList}
         mangaList={mangaList}
         setMangaList={setMangaList}
+        name={name} 
+        setName={setName}
       />
       <Switch>
         <Route exact path="/" render={() => <Home />} />
@@ -111,7 +116,7 @@ function App() {
         <Route
           exact
           path="/SignUp"
-          render={(props) => <SignUp {...props} />}
+          render={(props) => <SignUp  name={name} setName={setName} {...props} />}
         />
       </Switch>
     </div>
