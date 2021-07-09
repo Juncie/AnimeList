@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const TopManga = () => {
+function TopManga() {
   const [topManga, setTopManga] = useState([]);
   useEffect(() => {
     getTopManga();
@@ -13,24 +13,30 @@ const TopManga = () => {
     ).then((res) => res.json());
     setTopManga(temp.top);
   };
-  console.log(topManga);
+  //console.log(topManga);
 
-  const showTop = () => {
+  const showTopManga = () => {
     return topManga.map((eachManga, i) => {
-      console.log(eachManga.mal_id);
+      //console.log(eachManga.mal_id);
       return (
-        <Link to={`/MangaDetails/${eachManga.mal_id}`} key={i} className="links">
-          <div key={i}>
-            <img src={eachManga.image_url} className="images" alt="top manga"/>
+        <Link to={`/MoreDetails/${eachManga.mal_id}`} key={i} className="links">
+          <div className="card">
+            <div
+              className="card-image"
+              style={{
+                background: `url(${eachManga.image_url})`,
+                backgroundSize: " cover",
+              }}
+            ></div>
 
-            <h2>{eachManga.title}</h2>
+            <h4>{eachManga.title}</h4>
           </div>
         </Link>
       );
     });
   };
 
-  return <div className="show-box">{showTop()}</div>;
-};
+  return <div className="container">{showTopManga()}</div>;
+}
 
 export default TopManga;

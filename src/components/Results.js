@@ -3,52 +3,62 @@ import { Link } from "react-router-dom";
 
 function Results(props) {
   const animeCard = () => {
-    //console.log(props.animeList);
-
-    return props.animeList.map((ele) => {
+    return props.animeList.map((eachAnime, i) => {
+      //console.log(eachAnime);
       return (
-        <article className="anime-card">
-          <Link to={`/MoreDetails/${ele.mal_id}`} className="links">
-            <figure>
-              <img src={ele.image_url} alt="Anime" />
-            </figure>
-            <h3>{ele.title}</h3>
-          </Link>
-        </article>
+        <Link to={`/MoreDetails/${eachAnime.mal_id}`} key={i} className="links">
+          <div className="card">
+            <div
+              className="card-image"
+              style={{
+                background: `url(${eachAnime?.image_url})`,
+                backgroundSize: " cover",
+              }}
+            ></div>
+
+            <h4>{eachAnime.title}</h4>
+          </div>
+        </Link>
       );
     });
   };
 
   const mangaCard = () => {
-    //console.log(props.mangaList);
-
-    return props.mangaList.map((ele) => {
+    return props.mangaList.map((eachManga, i) => {
+      //console.log(eachManga);
       return (
-        <article className="anime-card">
-          <Link to={`/MangaDetails/${ele.mal_id}`} className="links">
-            <figure>
-              <img src={ele.image_url} alt="Anime" />
-            </figure>
-            <h3>{ele.title}</h3>
-          </Link>
-        </article>
+        <Link to={`/MoreDetails/${eachManga.mal_id}`} key={i} className="links">
+          <div className="card">
+            <div
+              className="card-image"
+              style={{
+                background: `url(${eachManga?.image_url})`,
+                backgroundSize: " cover",
+              }}
+            ></div>
+
+            <h4>{eachManga.title}</h4>
+          </div>
+        </Link>
       );
     });
   };
 
   return (
     <div>
-      <div className="show-box">
+      <span>
         <h1>Anime</h1>
+      </span>
+      <section>
+        <div className="container">{animeCard()}</div>
+      </section>
 
-        {animeCard()}
-      </div>
-
-      <div className="show-box">
+      <span>
         <h1>Manga</h1>
-
-        {mangaCard()}
-      </div>
+      </span>
+      <section>
+        <div className="container">{mangaCard()}</div>
+      </section>
     </div>
   );
 }
