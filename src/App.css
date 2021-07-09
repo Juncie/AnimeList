@@ -172,6 +172,8 @@ nav h5 {
 .more-details-info p{
   font-family: "Racing Sans One";
   word-wrap: break-word;
+  position: relative;
+  left: 1em;
  
 
 }
