@@ -46,15 +46,19 @@ function Results(props) {
 
   return (
     <div>
-      <div className="container">
+      <span>
         <h1>Anime</h1>
-        {animeCard()}
-      </div>
+      </span>
+      <section>
+        <div className="container">{animeCard()}</div>
+      </section>
 
-      <div className="container">
+      <span>
         <h1>Manga</h1>
-        {mangaCard()}
-      </div>
+      </span>
+      <section>
+        <div className="container">{mangaCard()}</div>
+      </section>
     </div>
   );
 }

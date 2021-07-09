@@ -14,37 +14,32 @@ function TopAnime() {
     setAnime(temp.top);
   };
 
-  
-
   const showTop = () => {
     return anime.map((eachAnime, i) => {
-      console.log(eachAnime.mal_id);
+      //console.log(eachAnime.mal_id);
       return (
         <Link to={`/MoreDetails/${eachAnime.mal_id}`} key={i} className="links">
-            <div className="card">
-            
-            <div className="card-image" style={{background:`url(${eachAnime.image_url})`,
-            backgroundSize:" cover"
-          }}>
-              
-            </div>
-            
-              <h4>{eachAnime.title}</h4>
+          <div className="card">
+            <div
+              className="card-image"
+              style={{
+                background: `url(${eachAnime.image_url})`,
+                backgroundSize: " cover",
+              }}
+            ></div>
+
+            <h4>{eachAnime.title}</h4>
           </div>
         </Link>
       );
     });
   };
 
-  return(
+  return (
     <div>
-    <section className="container">
-      {showTop()}
-    </section>
-    
+      <section className="container">{showTop()}</section>
     </div>
-    )
-  
+  );
 }
 
 export default TopAnime;
