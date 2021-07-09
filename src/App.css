@@ -184,9 +184,10 @@ nav h5 {
 
 .sec-1{
   display: flex;
+  background: url('https://lz12v4f1p8c1cumxnbiqvm10-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/sour-tropical-yellow-orange-gradient.jpg');
+  background-size: cover;
   justify-content: center;
   margin-top: 5em;
-  position: fixed;
   border-radius: 0in;
 
 }
@@ -198,9 +199,12 @@ nav h5 {
 }
 
 .favorite{
-  background-color: rgb(255, 62, 191);
+  background-color: rgb(255, 255, 255);
   margin: 1em;
   height: 3em;
+  border-radius: 1em;
+  font-family: "Luckiest Guy";
+  font-size: 1em;
 }
 
 .col-1{
