@@ -36,7 +36,7 @@ function TopAnime() {
   
   return(
     <div>
-    <h4>TOP ANIME</h4>
+    <h1>TOP ANIME</h1>
     <section className="container">
       {showTop()}
     </section>

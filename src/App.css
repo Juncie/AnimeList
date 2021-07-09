@@ -1,8 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
 html {
-  background: rgba(255, 154, 39, 0.514);
+  height: 100%;
+  background: url('https://lz12v4f1p8c1cumxnbiqvm10-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/sour-tropical-yellow-orange-gradient.jpg');
+  background-repeat:no-repeat;
+  background-size: cover;
 }
 .App {
   text-align: center;
@@ -77,22 +80,39 @@ nav h5 {
   justify-content: flex-end; 
 }
 
-#itadori{
-  position: fixed;
-  bottom: 0;
-  width: 15%;
-  align-self: flex-end;
-}
 
 .footer{
-  width: 100em;
   display: flex;
-  background: rgb(66, 59, 157);
-  height: 8em;
-  position: fixed;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  height: 10em;
+  position: relative;
+  background: url('https://image.shutterstock.com/image-illustration/abstract-purple-black-gradient-wall-260nw-1569111835.jpg');
   bottom: 0;
-  flex-direction: column;
+  overflow: hidden;
 }
+
+.icons{
+  /* display: flex; */
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding:1em;
+}
+
+#itadori{
+    width: 10em;
+    display: flex;
+    flex-direction: column;
+    width: 10em;
+    right: 35em;
+    position: sticky;
+    overflow: hidden;
+  
+  }
+  
 
 
 /* TopAnime */
@@ -100,7 +120,12 @@ nav h5 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  background: url('https://lz12v4f1p8c1cumxnbiqvm10-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/sour-tropical-yellow-orange-gradient.jpg')
 
+}
+
+.container h1{
+  font-family: "Luckiest Guy";
 }
 
 .card{
@@ -109,14 +134,13 @@ nav h5 {
   border-radius: 5px;
   /* justify-content: center; */
   margin: 10px 10px 55px;
-  box-shadow: 2px 2px rgba(0, 0, 0, 0.438);
+  box-shadow: 2px 2px rgb(0, 0, 0);
   color: rgb(0, 0, 0);
-  text-shadow: 1px 1px rgb(255, 255, 255);
   text-align: center;
+  font-family: "Russo One";
 }
 
-.card h4{
-}
+
 
 
 .card:hover{
@@ -132,8 +156,8 @@ nav h5 {
 /* More Details */
 
 .more-details-info iframe{
-  width: 100%;
-  height: 25em;
+  width: 78%;
+  height: 30em;
 }
 
 .more-details-info h1{
@@ -147,6 +171,8 @@ nav h5 {
 
 .more-details-info p{
   font-family: "Racing Sans One";
+  word-wrap: break-word;
+ 
 
 }
 
@@ -160,6 +186,21 @@ nav h5 {
   display: flex;
   justify-content: center;
   margin-top: 5em;
+  position: fixed;
+  border-radius: 0in;
+
+}
+.buttonz{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  -webkit-appearance: none;
+}
+
+.favorite{
+  background-color: rgb(255, 62, 191);
+  margin: 1em;
+  height: 3em;
 }
 
 .col-1{
@@ -191,5 +232,51 @@ nav h5 {
   flex-direction: column;
   width: 20em;
   margin-top: 1em;
+}
+#airing::-webkit-scrollbar{
+  background: rgb(68, 68, 68); 
+  border-radius: 5px;
+}
+
+#airing::-webkit-scrollbar-thumb:hover{
+  background: rgb(36, 36, 36); 
+}
+
+#upComingManga::-webkit-scrollbar{
+  background: rgb(68, 68, 68); 
+  border-radius: 5px;
+}
+
+#upComingManga::-webkit-scrollbar-thumb:hover{
+  background: rgb(36, 36, 36); 
+}
+
+
+
+#airing{
+  
+ display: flex;
+ flex-shrink: 1em;
+ height: 28em;
+ overflow-x: scroll;
+ /* Handle */
+ 
+
+}
+ 
+#airing a{
+  height: 1em;
+}
+
+#airing h5{
+  color: aliceblue;
+  text-shadow: none;
+}
+
+#upComingManga{
+  display: flex;
+  overflow-x: scroll;
+  height: 27em;
+  background:url('https://lz12v4f1p8c1cumxnbiqvm10-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/sour-tropical-yellow-orange-gradient.jpg')
 }
 

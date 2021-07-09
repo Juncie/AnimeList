@@ -114,8 +114,10 @@ const commentSection=()=> {
               <h4>Episodes: {anime.episodes}</h4>
               <h4>Airing: {anime.status}</h4>
               <h4>Air Dates: {anime.aired?.string}</h4>
-              <button style={{borderRadius:"5px", padding: "5px"}}  onClick={handleFavorite}>Favorite</button>
-              <button style={{borderRadius:"5px", padding: "5px"}}  onClick={handleDelete}>DeleteDB</button>
+              <div className="buttonz">
+                <button className="favorite" onClick={handleFavorite}>Favorite</button>
+                {/* <button style={{borderRadius:"5px", padding: "5px"}}  onClick={handleDelete}>DeleteDB</button> */}
+              </div>
             </div>
           </div>
 

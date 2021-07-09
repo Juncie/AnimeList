@@ -4,6 +4,13 @@
 	position: relative;
 	box-sizing: border-box;
 	height: 20em;
+	font-family: 'Russo One';
+	color: white;
+	text-shadow: 2px 2px rgba(29, 29, 29, 0.501);
+}
+.pcf-carousel h1{
+	font-size: 48px;
+	text-align: center;
 }
 
 .pcf-carousel > input {
@@ -44,16 +51,6 @@
 	margin: 0;
 }
 
-.pcf-carousel-dots,
-.pcf-carousel-anime-dots {
-	display: flex;
-	flex-wrap: nowrap;
-	position: absolute;
-	width: 100%;
-	justify-content: center;
-	bottom: 0;
-	z-index: 10;
-}
 
 .pcf-carousel-dots label {
 	position: relative;
