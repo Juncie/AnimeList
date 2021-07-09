@@ -44,7 +44,6 @@ const [anime, setAnime] = useState([])
 
     return (
         <div className='container'>
-            FAVORITES IS WORKING
             <button onClick={()=> {
               localStorage.removeItem('user');props.history.push('/'); window.location.reload()}}>Logout</button>
             
