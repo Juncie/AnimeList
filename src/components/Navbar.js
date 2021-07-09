@@ -25,11 +25,10 @@ const Navbar = (props) => {
             <h4> Top Manga </h4>{" "}
           </Link>
 
-
           {localStorage.getItem('user')?
           <Link to="/Favorites" className="links">
             {" "}
-            <h4>{localStorage.getItem('user')}'s  Favorites </h4>{" "}
+            <h4>{localStorage.getItem('user')}'s  Profile </h4>{" "}
           </Link> : 
           <Link to="/SignUp" className="links">
             {" "}
@@ -46,9 +45,7 @@ const Navbar = (props) => {
                     onChange={(e) => props.setSearch(e.target.value)}
                   ></input>
                   <button className="nav-bar-search-button" type="submit" placeholder="no"><img width="20%" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/docomo/205/left-pointing-magnifying-glass_1f50d.png" /></button>
-            </form>
-            
-
+            </form>            
           </div>
         </section>
       </nav>

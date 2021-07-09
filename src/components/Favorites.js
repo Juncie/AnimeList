@@ -43,11 +43,16 @@ const [anime, setAnime] = useState([])
           };
 
     return (
-        <div className='container'>
-            <button onClick={()=> {
-              localStorage.removeItem('user');props.history.push('/'); window.location.reload()}}>Logout</button>
-            
-            {showFavorites()}
+        <div>
+        <span>
+            <h1>Favorites</h1>
+              <button onClick={()=> {
+                localStorage.removeItem('user');props.history.push('/'); window.location.reload()}}>Logout</button>
+        </span>
+          <div className='container'>
+          
+              {showFavorites()}
+          </div>
         </div>
     );
 }
