@@ -67,7 +67,15 @@ function App() {
 
   return (
     <div className="App">
-     
+      <Navbar
+        search={search}
+        setSearch={setSearch}
+        HandleSearch={HandleSearch}
+        animeList={animeList}
+        setAnimeList={setAnimeList}
+        mangaList={mangaList}
+        setMangaList={setMangaList}
+      />
       <Switch>
         <Route exact path="/" render={() => <Home />} />
         <Route
@@ -108,15 +116,6 @@ function App() {
           render={(props) => <SignUp {...props} />}
         />
       </Switch>
-      <Navbar
-        search={search}
-        setSearch={setSearch}
-        HandleSearch={HandleSearch}
-        animeList={animeList}
-        setAnimeList={setAnimeList}
-        mangaList={mangaList}
-        setMangaList={setMangaList}
-      />
     </div>
   );
 }

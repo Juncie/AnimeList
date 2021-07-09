@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Navbar = (props) => {
 
   return (
-    <div style={{top:"0", position:"sticky"}} className="nav-bar">
+    <div style={{top:"0", position:"sticky", zIndex:"2"}} className="nav-bar">
       <nav>
       <Link to="/" className="links">
         <section className="logo">
@@ -18,18 +18,18 @@ const Navbar = (props) => {
         <section className="options">
           <Link to="/TopAnime" className="links">
             {" "}
-            <h3> Top Anime </h3>{" "}
+            <h4> Top Anime </h4>{" "}
           </Link>
           <Link to="/TopManga" className="links">
             {" "}
-            <h3> Top Manga </h3>{" "}
+            <h4> Top Manga </h4>{" "}
           </Link>
 
 
           {localStorage.getItem('user')?
           <Link to="/Favorites" className="links">
             {" "}
-            <h3>{localStorage.getItem('user')} Favorites </h3>{" "}
+            <h4>{localStorage.getItem('user')}'s  Favorites </h4>{" "}
           </Link> : 
           <Link to="/SignUp" className="links">
             {" "}
@@ -39,18 +39,16 @@ const Navbar = (props) => {
           <div>
             <form onSubmit={props.HandleSearch}>
                   <input
+                    className="nav-search-bar"
                     type="search"
                     placeholder="Search AniToons"
                     requiredvalue={props.search}
                     onChange={(e) => props.setSearch(e.target.value)}
                   ></input>
+                  <button className="nav-bar-search-button" type="submit" placeholder="no"><img src="" /></button>
             </form>
             
-            {/* <div className="anime-list">
-              {props.animeList.map((anime) => (
-                <AnimeCard anime={anime} key={anime.mal_id} />
-              ))}
-            </div> */}
+
           </div>
         </section>
       </nav>

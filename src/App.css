@@ -2,32 +2,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap');
 
 html {
-  background: orange;
+  background: rgba(255, 154, 39, 0.514);
 }
 .App {
   text-align: center;
 }
 /* NAVBAR Lines 12 - 63 */
 .nav-bar {
-  /* display: flex; */
-  justify-content: center;
+  display: flex;
 }
 nav {
   display: flex;
-  background-color: black;
+  background-color: rgb(29, 29, 29);
   color: white;
-  width: 95vw;
+  font-weight: normal;
+  width: 100vw;
+
   border-radius: 5px;
   font-family: "Luckiest Guy";
-  margin-top: 3em;
-  margin-left: 3em;
   align-items: center;
   justify-content: space-between;
 }
 
+nav h4:hover{
+  color: orange;
+  transition: all .1s ease-in;
+}
 .links{
   text-decoration: none;
   color: white;
+  margin: 0;
 }
 nav h1 {
   font-size: 32px;
@@ -51,12 +55,20 @@ nav h5 {
   width: 60vw;
   margin-right: 3vw;
 }
-.options input {
-  height: 2em,;
-  align-self: center;
-  border-radius: 7px;
-  text-align: center;
-  width: 15vw;
+
+.nav-search-bar{
+  width: 15em;
+}
+
+.nav-bar-search-button{
+  margin:0;
+  position: absolute;
+  width: 5em;
+  height: 23px;
+  right: 100px;
+  padding: 0;
+  border-radius: 5px;
+  -webkit-appearance: none;
 }
 /* HOME */
 .slides .slick-prev,

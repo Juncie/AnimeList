@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Slider from 'react-slick';
 
 const Home = () => {
 
     return (
     <div className="home-page">
-      
-      <section class="carousel" aria-label="Gallery">
+   
+      <section class="carousel">
   <ol class="carousel__viewport">
     <li id="carousel__slide1"
-        tabindex="0"
         class="carousel__slide">
+          <h1>View info about your favorite Anime</h1>
       <div class="carousel__snapper">
-        <a href="#carousel__slide4"
+        <a href="#TopAnime"
            class="carousel__prev">Go to last slide</a>
         <a href="#carousel__slide2"
            class="carousel__next">Go to next slide</a>
@@ -47,6 +46,7 @@ const Home = () => {
          class="carousel__next">Go to first slide</a>
     </li>
   </ol>
+  
   <aside class="carousel__navigation">
     <ol class="carousel__navigation-list">
       <li class="carousel__navigation-item">
