@@ -123,7 +123,7 @@ return (
         <div style={{ height: "50em", color: "white" }}></div>
       </div>
        
-       <h1>Upcoming Anime</h1>
+       <h1 style={{fontFamily: "Luckiest Guy"}}>Upcoming Anime</h1>
       <section id="airing">
      
          
@@ -131,7 +131,7 @@ return (
         {showTopUp()}
       
       </section >
-      <h1>Manga Novels</h1>
+      <h1 style={{fontFamily: "Luckiest Guy"}}>Manga Novels</h1>
       <section id="upComingManga">
       {showManga()}
 
