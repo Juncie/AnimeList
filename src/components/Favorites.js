@@ -24,9 +24,9 @@ const [anime, setAnime] = useState([])
 
         const showFavorites = () => {
             return favorites.map((eachAnime, i) => {
-              console.log(eachAnime);
+              //console.log(eachAnime);
               return (
-                <Link to={`/MoreDetails/${eachAnime.id}`} key={i} className="links">
+                <Link to={`/MoreDetails/${eachAnime.animeId}`} key={i} className="links">
                     <div className="card">
                     
                     <div className="card-image" style={{background:`url(${eachAnime?.anime?.image_url})`,
