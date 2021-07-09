@@ -5,7 +5,7 @@ const Navbar = (props) => {
 
   return (
     <div style={{top:"0", position:"sticky", zIndex:"2"}} className="nav-bar">
-      <nav>
+      <nav onScroll={{background:'grey'}}>
       <Link to="/" className="links">
         <section className="logo">
           <h1>
@@ -45,7 +45,7 @@ const Navbar = (props) => {
                     requiredvalue={props.search}
                     onChange={(e) => props.setSearch(e.target.value)}
                   ></input>
-                  <button className="nav-bar-search-button" type="submit" placeholder="no"><img src="" /></button>
+                  <button className="nav-bar-search-button" type="submit" placeholder="no"><img width="20%" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/docomo/205/left-pointing-magnifying-glass_1f50d.png" /></button>
             </form>
             
 
