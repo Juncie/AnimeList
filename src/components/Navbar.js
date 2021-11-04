@@ -39,15 +39,13 @@ const Navbar = (props) => {
           }
           <div>
             <form onSubmit={props.HandleSearch}>
-              <button className="nav-bar-search-button" type="submit" placeholder="no"><img width="20%" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/docomo/205/left-pointing-magnifying-glass_1f50d.png" /></button>
                   <input
-                    className="nav-search-bar"
+                    className="searchBar"
                     type="search"
                     placeholder="Search AniToons"
                     requiredvalue={props.search}
                     onChange={(e) => props.setSearch(e.target.value)}
-                  ></input>
-                  <button className="nav-bar-search-button" type="submit" placeholder="no"><img width="20%" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/docomo/205/left-pointing-magnifying-glass_1f50d.png" /></button>
+                  />
             </form>            
           </div>
         </section>

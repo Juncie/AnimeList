@@ -1,23 +1,17 @@
-import axios from "axios";
 import React, { useState } from "react";
 
 function SignUp(props) {
   let [name, setName] = useState();
 
-  const handleChange = (e) => {
-    setName(e.target.value);
-  };
+  const handleChange = (e) => setName(e.target.value);
 
   const handleSubmit = async (e) => {
     e.preventDefault()  
      localStorage.setItem("user", name);
      props.setName(name)
-     //console.log(name);
-     //console.log(localStorage);
      props.history.push("/Favorites")
   };
-  return (
-    <div>
+  return <div>
       <form onSubmit={handleSubmit}>
         <input
           onChange={handleChange}
@@ -26,11 +20,10 @@ function SignUp(props) {
           name="user"
           required
         />
-
         <input style={{ textAlign: "center" }} type="submit" />
       </form>
     </div>
-  );
+  
 }
 
 export default SignUp;

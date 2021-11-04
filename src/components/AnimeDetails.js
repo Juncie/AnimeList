@@ -1,42 +1,37 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 
-const MoreDetails = (props) => {
+const AnimeDetails = (props) => {
   const [anime, setAnime] = useState([]);
   const [characters, setCharacters] = useState([]);
   const [comments, setComments] = useState("");
-  const [user, setUser] = useState({});
   const [commentSect, setCommentSect] = useState([]);
 
   useEffect(() => {
-    axios.get(`https://api.jikan.moe/v3/anime/${props.match.params.dynamicId}`).then((res) => {
-      setAnime(res.data);
-    });
+    axios
+        .get(`https://api.jikan.moe/v3/anime/${props.match.params.dynamicId}`)
+        .then(res => setAnime(res.data));
     axios
       .get(`https://api.jikan.moe/v3/anime/${props.match.params.dynamicId}/characters_staff`)
-      .then((ren) => {
-        setCharacters(ren.data.characters);
-      });
+      .then((ren) => setCharacters(ren.data.characters));
 
-    // GET for CommentSection
-    axios.get(`https://ironrest.herokuapp.com/AniToonsComments`).then((rex) => {
-      setCommentSect(rex.data);
-    });
+    axios
+    .get(`https://ironrest.herokuapp.com/AniToonsComments`)
+    .then((rex) => {setCommentSect(rex.data);});
   }, []);
 
   const showCharacters = () => {
     return characters
       ?.filter((char) => char.role === "Main")
       .map((ele) => {
-        return (
-          <div>
+        return <div>
             <div className="char.imgs-parent">
-              <img className="character-images" width="100em" src={ele.image_url}></img>
+              <img className="character-images" width="100em" src={ele.image_url} alt={ele.name}></img>
               <p>{ele.name}</p>
             </div>
           </div>
-        );
       });
   };
 
@@ -147,4 +142,4 @@ const commentSection=()=> {
   );
 };
 
-export default MoreDetails;
+export default AnimeDetails;

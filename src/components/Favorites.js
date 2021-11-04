@@ -4,57 +4,37 @@ import { Link } from "react-router-dom";
 
 
 function Favorites(props) {
-const [favorites, setFavorites] = useState([])
-const [anime, setAnime] = useState([])
+  const [favorites, setFavorites] = useState([]);
+  const LogOut = () => {
+    localStorage.removeItem("user");
+    props.history.push("/");
+    window.location.reload();
+  }
+  
+  useEffect(() => {
+    axios
+    .get(`https://ironrest.herokuapp.com/findAll/AniToonsFavorites?user=${localStorage.getItem("user")}`)
+    .then(rex=> setFavorites(rex.data));
+  }, []);
 
-    useEffect(() => {
-        axios
-        .get(`https://ironrest.herokuapp.com/findAll/AniToonsFavorites?user=${localStorage.getItem("user")}`)
-        .then((rex) => {
-            //console.log(rex);
-          setFavorites(rex.data);
-        });
-
-    //     axios.get(`https://api.jikan.moe/v3/anime/${props.match.params.dynamicId}`).then((res) => {
-    //   setAnime(res.data);
-    // });
-    }, [])
-
-
-
-        const showFavorites = () => {
-            return favorites.map((eachAnime, i) => {
-              //console.log(eachAnime);
-              return (
-                <Link to={`/MoreDetails/${eachAnime.animeId}`} key={i} className="links">
-                    <div className="card">
-                    
-                    <div className="card-image" style={{background:`url(${eachAnime?.anime?.image_url})`,
-                    backgroundSize:" cover"
-                  }}>
-                      
-                    </div>
-                    
-                      <h4>{eachAnime.anime.title}</h4>
-                  </div>
-                </Link>
-              );
-            });
-          };
-
-    return (
-        <div>
-        <span>
-            <h1>Favorites</h1>
-              <button onClick={()=> {
-                localStorage.removeItem('user');props.history.push('/'); window.location.reload()}}>Logout</button>
-        </span>
-          <div className='container'>
-          
-              {showFavorites()}
+  const showFavorites = () => {
+    return favorites.map((eachAnime, i) => {
+      return <Link to={`/AnimeDetails/${eachAnime.animeId}`} key={i} className='links'>
+          <div className='card'>
+            <div className='card-image' style={{ background: `url(${eachAnime?.anime?.image_url})`, backgroundSize: " cover" }} /> 
+            <h4>{eachAnime.anime.title}</h4>
           </div>
-        </div>
-    );
+        </Link>
+    });
+  };
+  return <div>
+        <h1>Favorites</h1>
+        <button onClick={LogOut}>
+          Logout
+        </button>
+      <div className='container'>{showFavorites()}</div>
+    </div>
+
 }
 
 export default Favorites;

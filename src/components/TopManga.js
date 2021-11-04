@@ -3,47 +3,36 @@ import { Link } from "react-router-dom";
 
 function TopManga() {
   const [topManga, setTopManga] = useState([]);
+  
   useEffect(() => {
     getTopManga();
   }, []);
 
   const getTopManga = async () => {
-    const temp = await fetch(
-      `https://api.jikan.moe/v3/top/manga/1/bypopularity`
-    ).then((res) => res.json());
+    const temp = await fetch(`https://api.jikan.moe/v3/top/manga/1/bypopularity`)
+    .then(res => res.json());
     setTopManga(temp.top);
   };
-  //console.log(topManga);
 
   const showTopManga = () => {
     return topManga.map((eachManga, i) => {
-      //console.log(eachManga.mal_id);
-      return (
-        <Link to={`/MangaDetails/${eachManga.mal_id}`} key={i} className="links">
+      return <Link to={`/MangaDetails/${eachManga.mal_id}`} key={i} className="links">
           <div className="card">
             <div
               className="card-image"
-              style={{
-                background: `url(${eachManga.image_url})`,
-                backgroundSize: " cover",
-              }}
-            ></div>
-
+              style={{ background: `url(${eachManga.image_url})`, backgroundSize: " cover"}}
+            />
             <h4>{eachManga.title}</h4>
           </div>
         </Link>
-      );
     });
   };
 
-  return (
-    <div>
-    <h1 style={{fontFamily:"Luckiest Guy", fontSize: '64px'}}>TOP MANGA</h1>
+  return <div>
+    <h1 className='primaryText titleText'>TOP MANGA</h1>
     <section className="container">
       {showTopManga()}
     </section>
-    
     </div>
-  );
 }
 export default TopManga;

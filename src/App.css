@@ -1,29 +1,36 @@
 @import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+
 html {
   height: 100%;
-  background: url('https://lz12v4f1p8c1cumxnbiqvm10-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/sour-tropical-yellow-orange-gradient.jpg');
   background-repeat:no-repeat;
   background-size: cover;
+  width: 100vw;
 }
+
+.primaryText{
+  font-family: 'Luckiest Guy';
+}
+
+.titleText{
+  font-size: 64px;
+}
+
 .App {
   text-align: center;
+  background: center / cover no-repeat url('./assets/background.svg');
+  color: white;
+  letter-spacing: .08vw;
 }
+
 /* NAVBAR Lines 12 - 63 */
-.nav-bar {
-  display: flex;
-}
 nav {
   display: flex;
   background-color: rgb(29, 29, 29);
   color: white;
-  font-weight: normal;
   width: 100vw;
-
-  border-radius: 5px;
   font-family: "Luckiest Guy";
-  align-items: center;
   justify-content: space-between;
 }
 
@@ -59,8 +66,14 @@ nav h5 {
   margin-right: 3vw;
 }
 
-.nav-search-bar{
+.searchBar{
   width: 15em;
+  height: 2.5em;
+  padding: 5px;
+  background-image: url('https://cdn1.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-512.png');
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 25px;
 }
 
 .nav-bar-search-button{
@@ -74,12 +87,16 @@ nav h5 {
   -webkit-appearance: none;
 }
 /* HOME */
+
+.homePage{
+  margin: 0 5vw;
+}
+
 .home-page-bottom{
   flex-direction: column;
   align-items: flex-end; 
   justify-content: flex-end; 
 }
-
 
 .footer{
   display: flex;
@@ -89,13 +106,12 @@ nav h5 {
   width: 100%;
   height: 10em;
   position: relative;
-  background: url('https://media.istockphoto.com/photos/abstract-gradient-dark-purple-background-gradient-dark-purple-color-picture-id1162940297?k=6&m=1162940297&s=170667a&w=0&h=TfNcfl6YLYHCP3jDba8KewS39EUBJrgJ34uebjSjHvk=');
+  /* background: url('https://media.istockphoto.com/photos/abstract-gradient-dark-purple-background-gradient-dark-purple-color-picture-id1162940297?k=6&m=1162940297&s=170667a&w=0&h=TfNcfl6YLYHCP3jDba8KewS39EUBJrgJ34uebjSjHvk='); */
   bottom: 0;
   overflow: hidden;
 }
 
 .icons{
-  /* display: flex; */
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -110,18 +126,13 @@ nav h5 {
     right: 35em;
     position: sticky;
     overflow: hidden;
-  
   }
   
-
-
 /* TopAnime */
 .container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  background: url('https://lz12v4f1p8c1cumxnbiqvm10-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/sour-tropical-yellow-orange-gradient.jpg')
-
 }
 
 .container h1{
@@ -132,29 +143,27 @@ nav h5 {
   width: 225px;
   height: 20em;
   border-radius: 5px;
-  /* justify-content: center; */
   margin: 10px 10px 55px;
   box-shadow: 2px 2px rgb(0, 0, 0);
   color: rgb(0, 0, 0);
   text-align: center;
-  font-family: "Russo One";
 }
-
-
-
 
 .card:hover{
  transform: scale(1.1);
  transition: all .2s ease-in;
 }
+
+.card-image:hover{
+  transform: scale(1.025);
+  transition: all .2s ease-in;
+ }
 .card-image{
+  width: 100%;
   height: 20em;
-  border-radius:5px;
-  
 }
 
 /* More Details */
-
 .more-details-info iframe{
   width: 78%;
   height: 30em;
@@ -174,11 +183,9 @@ nav h5 {
   word-wrap: break-word;
   position: relative;
   left: 1em;
- 
-
 }
 
-.youtube-vid, .character-images{
+.youtube-vid{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -186,8 +193,6 @@ nav h5 {
 
 .sec-1{
   display: flex;
-  background: url('https://lz12v4f1p8c1cumxnbiqvm10-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/sour-tropical-yellow-orange-gradient.jpg');
-  background-size: cover;
   justify-content: center;
   margin-top: 5em;
   border-radius: 0in;
@@ -201,10 +206,14 @@ nav h5 {
 }
 
 .favorite{
-  background-color: rgb(255, 255, 255);
-  margin: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  background: rgb(255, 255, 255);
   height: 3em;
-  border-radius: 1em;
+  width: 5vw;
+  border-radius: .5em;
   font-family: "Luckiest Guy";
   font-size: 1em;
 }
@@ -216,15 +225,13 @@ nav h5 {
 .col-2{
   display: flex;
   flex-direction: column;
-  width: 60em;
+  width: 75em;
 }
-
 
 .char-imgs{
   display: flex;
   justify-content: space-evenly;
 }
-
 
 .comment-section input, textarea{
   display: flex;
@@ -239,35 +246,37 @@ nav h5 {
   width: 20em;
   margin-top: 1em;
 }
-#airing::-webkit-scrollbar{
-  background: rgb(68, 68, 68); 
-  border-radius: 5px;
+#airing::-webkit-scrollbar, #upComingManga::-webkit-scrollbar{
+  background: rgb(85, 85, 85);
+  width: 50%;
+  visibility: hidden;
+}
+#airing::-webkit-scrollbar:hover{
+  visibility: visible;
+}
+
+#airing::-webkit-scrollbar-thumb{
+background: rgb(39, 39, 39);
+  width: 50%;
 }
 
 #airing::-webkit-scrollbar-thumb:hover{
-  background: rgb(36, 36, 36); 
+  background: rgb(0, 0, 0); 
 }
 
-#upComingManga::-webkit-scrollbar{
+/* #upComingManga::-webkit-scrollbar{
   background: rgb(68, 68, 68); 
-  border-radius: 5px;
-}
+} */
 
 #upComingManga::-webkit-scrollbar-thumb:hover{
   background: rgb(36, 36, 36); 
 }
 
-
-
 #airing{
-  
  display: flex;
  flex-shrink: 1em;
  height: 28em;
  overflow-x: scroll;
- /* Handle */
- 
-
 }
  
 #airing a{
@@ -275,7 +284,7 @@ nav h5 {
 }
 
 #airing h5{
-  color: aliceblue;
+  color: rgb(42, 42, 42);
   text-shadow: none;
 }
 
@@ -283,6 +292,5 @@ nav h5 {
   display: flex;
   overflow-x: scroll;
   height: 27em;
-  background:url('https://lz12v4f1p8c1cumxnbiqvm10-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/sour-tropical-yellow-orange-gradient.jpg')
 }
 
