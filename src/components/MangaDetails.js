@@ -5,11 +5,11 @@ import axios from "axios";
 function MangaDetails(props) {
   const [manga, setManga] = useState([]);
 
-  
-
   useEffect(() => {
-      let details = axios.get(`https://api.jikan.moe/v3/manga/${props.match.params.dynamicId}`);
-      setManga(details.data);
+      axios.get(`https://api.jikan.moe/v3/manga/${props.match.params.dynamicId}`).then(res => {
+        console.log(res);
+        setManga(res.data)
+      })
   }, []);
 
   return <div className='more-details'>

@@ -46,6 +46,9 @@ const Navbar = (props) => {
                     requiredvalue={props.search}
                     onChange={(e) => props.setSearch(e.target.value)}
                   />
+                  <button type='submit'>
+                    <i className='icon' icon-search />
+                  </button>
             </form>            
           </div>
         </section>
